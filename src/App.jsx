@@ -23,7 +23,7 @@ import {
   FaPhone, FaInstagram
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { QRCodeSVG } from 'qrcode.react';
+
 import { FaMobileAlt } from 'react-icons/fa';
 
 // Premium High-Performance Spring Animations
@@ -51,56 +51,13 @@ const cardHoverEffects = {
     transition: { type: "spring", stiffness: 300, damping: 20 }
   }
 };
-export function PortfolioQRCode() {
-  // Replace this with your actual deployed Vercel, Netlify, or custom domain URL
-  const portfolioUrl = "https://vishal-l-shettigar.vercel.app"; 
 
-  return (
-    <div className="flex flex-col items-center justify-center p-8 bg-[#02040a]/80 border border-slate-900 rounded-2xl max-w-sm mx-auto text-center backdrop-blur-md my-12 shadow-2xl relative overflow-hidden group">
-      {/* High-tech ambient background glow */}
-      <div className="absolute -inset-10 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-700"></div>
-
-      <div className="relative z-10 space-y-4">
-        {/* Header Title Section */}
-        <div className="flex items-center justify-center gap-2 text-cyan-400 font-mono text-[10px] font-bold tracking-widest uppercase">
-          <FaMobileAlt className="animate-pulse" />
-          <span>Mobile Sync Protocol</span>
-        </div>
-        
-        <h3 className="text-lg font-black text-white tracking-tight">View on Mobile Device</h3>
-        <p className="text-xs text-slate-400 max-w-[240px] mx-auto">
-          Scan this Matrix to open this live engineering portfolio directly on your smartphone.
-        </p>
-
-        {/* Interactive QR Code Container */}
-        <motion.div 
-          whileHover={{ scale: 1.04, rotate: 1 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="bg-white p-4 rounded-xl inline-block shadow-[0_0_25px_rgba(34,211,238,0.15)] border-2 border-cyan-500/20 relative mx-auto cursor-pointer"
-        >
-          <QRCodeSVG 
-            value={portfolioUrl}
-            size={160}
-            bgColor={"#ffffff"}
-            fgColor={"#02040a"} // Clean dark cyberpunk color for the data blocks
-            level={"M"}         // Medium error correction to ensure fast mobile camera snapping
-            includeMargin={false}
-          />
-        </motion.div>
-
-        {/* Dynamic Link Subtext */}
-        <div className="pt-2">
-          <span className="text-[9px] font-mono text-slate-500 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-900 break-all select-all">
-            {portfolioUrl.replace("https://", "")}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [showAllCerts, setShowAllCerts] = useState(false);
+const [showAllAchievements, setShowAllAchievements] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const skillsData = [
     {
@@ -220,6 +177,20 @@ export default function App() {
       id: "AUTH-7721-SQL",
       date: "2024",
       icon: <FaMedal className="text-indigo-400" />
+    },
+     {
+      title: "Structured Data Schemas & Query Optimization",
+      issuer: "Database Systems Lab",
+      id: "AUTH-7721-SQL",
+      date: "2024",
+      icon: <FaMedal className="text-indigo-400" />
+    },
+    {
+      title: "Structured Data Schemas & Query Optimization",
+      issuer: "Database Systems Lab",
+      id: "AUTH-7721-SQL",
+      date: "2024",
+      icon: <FaMedal className="text-indigo-400" />
     }
   ];
 
@@ -231,6 +202,16 @@ export default function App() {
       icon: <FaTrophy className="text-amber-400" />
     },
     {
+      metric: "9.52 CGPA",
+      title: "Academic Excellence Track (BCA)",
+      desc: "Ranked among top tier graduates for consistent execution across Object-Oriented Logic and Mathematical Modeling fields.",
+      icon: <FaGraduationCap className="text-cyan-400" />
+    },{
+      metric: "9.52 CGPA",
+      title: "Academic Excellence Track (BCA)",
+      desc: "Ranked among top tier graduates for consistent execution across Object-Oriented Logic and Mathematical Modeling fields.",
+      icon: <FaGraduationCap className="text-cyan-400" />
+    },{
       metric: "9.52 CGPA",
       title: "Academic Excellence Track (BCA)",
       desc: "Ranked among top tier graduates for consistent execution across Object-Oriented Logic and Mathematical Modeling fields.",
@@ -278,7 +259,7 @@ export default function App() {
         <div className="flex items-center gap-2.5">
           <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></span>
           <span className="text-sm font-black tracking-[0.2em] text-white uppercase font-mono">
-            CARTER<span className="text-cyan-400">_ENGINE</span>
+            Vishal<span className="text-cyan-400">_L</span><span className="text-green-400">_Shettigar</span>
           </span>
         </div>
 
@@ -471,132 +452,299 @@ export default function App() {
       </section>
 
       {/* Full-Stack Interactive Project Explorer Registry */}
-      <section id="projects" className="py-24 px-6 md:px-16 border-b border-slate-900/60 max-w-6xl mx-auto">
-        <div className="text-center space-y-2 mb-16">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 block">Assembled Systems</span>
-          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">Real-World Software Assets</h2>
+<section
+  id="projects"
+  className="py-24 px-6 md:px-16 border-b border-slate-900/60 max-w-6xl mx-auto"
+>
+  {/* Heading */}
+  <div className="text-center space-y-2 mb-16">
+    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 block">
+      Assembled Systems
+    </span>
+
+    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+      Real-World Software Assets
+    </h2>
+  </div>
+
+  {/* Header Row */}
+  <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
+
+    <div>
+      <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+        Production Registries
+      </h3>
+    </div>
+
+    {/* VIEW ALL BUTTON */}
+    {projectData.length > 3 && (
+      <button
+        onClick={() => setShowAllProjects(!showAllProjects)}
+        className="text-[10px] font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all duration-300"
+      >
+        {showAllProjects
+          ? "Show Less"
+          : `View All (${projectData.length})`}
+      </button>
+    )}
+  </div>
+
+  {/* PROJECT GRID */}
+  <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+
+    {(showAllProjects
+      ? projectData
+      : projectData.slice(0, 3)
+    ).map((project, idx) => (
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          type: "spring",
+          stiffness: 70,
+          damping: 14,
+          delay: idx * 0.1
+        }}
+        variants={cardHoverEffects}
+        whileHover="hover"
+        key={idx}
+        className="bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl flex flex-col justify-between overflow-hidden shadow-2xl hover:border-slate-700/80 transition group"
+      >
+
+        <div className="p-6 space-y-3">
+
+          <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider px-2.5 py-1 bg-[#02040a] text-cyan-400 border border-slate-800 rounded inline-block">
+            {project.category}
+          </span>
+
+          <div>
+            <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              {project.title}
+            </h3>
+
+            <p className="text-[11px] font-mono text-slate-500 mt-0.5">
+              {project.subtitle}
+            </p>
+          </div>
+
+          <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-normal pt-2">
+            {project.shortDesc}
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {projectData.map((project, idx) => (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 70, damping: 14, delay: idx * 0.1 }}
-              variants={cardHoverEffects}
-              whileHover="hover"
-              key={project.title}
-              className="bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl flex flex-col justify-between overflow-hidden shadow-2xl hover:border-slate-700/80 transition group"
+        <div className="px-6 pb-6 pt-2 space-y-4">
+
+          <div className="flex flex-wrap gap-1.5">
+            {project.stack.map((tech) => (
+              <span
+                key={tech}
+                className="text-[10px] font-mono text-slate-400 bg-[#02040a] px-2 py-0.5 rounded border border-slate-900"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="pt-2 border-t border-slate-900">
+            <button
+              onClick={() => openProjectModal(project)}
+              className="w-full py-3 rounded-lg bg-[#02040a] hover:bg-slate-800 text-xs font-bold tracking-wider text-center text-slate-200 border border-slate-800 flex items-center justify-center gap-2 transition"
             >
-              <div className="p-6 space-y-3">
-                <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider px-2.5 py-1 bg-[#02040a] text-cyan-400 border border-slate-800 rounded inline-block">{project.category}</span>
+              Explore System Blueprint
+
+              <FaExternalLinkAlt className="text-[9px] text-cyan-400" />
+            </button>
+          </div>
+
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+      {/* NEW: Achievements & Certifications Section */}
+<section
+  id="credentials"
+  className="py-24 bg-[#03060e]/40 border-b border-slate-900/80 px-6 md:px-16"
+>
+  <div className="max-w-6xl mx-auto">
+
+    {/* Heading */}
+    <div className="text-center space-y-2 mb-16">
+      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-400 block">
+        System Validation
+      </span>
+
+      <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+        Achievements & Certifications
+      </h2>
+    </div>
+
+    <div className="grid lg:grid-cols-12 gap-10 items-start">
+
+      {/* LEFT SIDE */}
+      <div className="lg:col-span-7 space-y-5">
+
+        <div className="flex items-center justify-between flex-wrap gap-4">
+
+          <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+            Industry Verifications
+          </h3>
+
+          {/* VIEW ALL BUTTON */}
+          {certificationData.length > 3 && (
+            <button
+              onClick={() => setShowAllCerts(!showAllCerts)}
+              className="text-[10px] font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all duration-300"
+            >
+              {showAllCerts
+                ? "Show Less"
+                : `View All (${certificationData.length})`}
+            </button>
+          )}
+        </div>
+
+        {/* CERTIFICATION CARDS */}
+        <div className="space-y-4">
+          {(showAllCerts
+            ? certificationData
+            : certificationData.slice(0, 3)
+          ).map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 15,
+                delay: index * 0.08
+              }}
+              whileHover={{
+                x: 6,
+                scale: 1.01,
+                borderLeftColor: "#22d3ee"
+              }}
+              className="p-5 rounded-xl bg-slate-900/20 border-l-2 border-transparent border border-slate-800/60 backdrop-blur-sm flex gap-4 items-center justify-between group transition-all duration-300 hover:bg-slate-900/40 hover:border-cyan-500/20"
+            >
+
+              <div className="flex gap-4 items-center">
+
+                <div className="w-11 h-11 rounded-lg bg-[#02040a] border border-slate-800 flex items-center justify-center text-lg shrink-0 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                  {cert.icon}
+                </div>
+
                 <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-                  <p className="text-[11px] font-mono text-slate-500 mt-0.5">{project.subtitle}</p>
+                  <h4 className="text-sm md:text-base font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
+                    {cert.title}
+                  </h4>
+
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {cert.issuer}
+                    <span className="text-slate-600 mx-2">•</span>
+
+                    <span className="font-mono text-slate-500">
+                      {cert.id}
+                    </span>
+                  </p>
                 </div>
-                <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-normal pt-2">{project.shortDesc}</p>
               </div>
-              
-              <div className="px-6 pb-6 pt-2 space-y-4">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.stack.map(tech => (
-                    <span key={tech} className="text-[10px] font-mono text-slate-400 bg-[#02040a] px-2 py-0.5 rounded border border-slate-900">{tech}</span>
-                  ))}
+
+              <span className="text-xs font-mono font-bold text-slate-500 bg-slate-900 px-2.5 py-1 rounded border border-slate-800 shrink-0">
+                {cert.date}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* RIGHT SIDE */}
+      <div className="lg:col-span-5 space-y-5">
+
+        <div className="flex items-center justify-between flex-wrap gap-4">
+
+          <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+            Competitive Performance
+          </h3>
+
+          {/* VIEW ALL BUTTON */}
+          {achievementData.length > 3 && (
+            <button
+              onClick={() =>
+                setShowAllAchievements(!showAllAchievements)
+              }
+              className="text-[10px] font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg border border-blue-500/20 bg-blue-500/5 text-blue-400 hover:bg-blue-500 hover:text-black transition-all duration-300"
+            >
+              {showAllAchievements
+                ? "Show Less"
+                : `View All (${achievementData.length})`}
+            </button>
+          )}
+        </div>
+
+        {/* ACHIEVEMENT CARDS */}
+        <div className="space-y-4">
+          {(showAllAchievements
+            ? achievementData
+            : achievementData.slice(0, 3)
+          ).map((ach, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 15,
+                delay: index * 0.1
+              }}
+              whileHover={{
+                y: -4,
+                scale: 1.02
+              }}
+              className="p-6 rounded-xl bg-gradient-to-br from-slate-900/40 to-slate-950/20 border border-slate-800 relative overflow-hidden group shadow-xl hover:border-cyan-500/20 transition-all duration-300"
+            >
+
+              <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all text-6xl pointer-events-none">
+                {ach.icon}
+              </div>
+
+              <div className="flex items-start gap-4">
+
+                <div className="text-xl mt-1">
+                  {ach.icon}
                 </div>
-                
-                <div className="pt-2 border-t border-slate-900">
-                  <button 
-                    onClick={() => openProjectModal(project)}
-                    className="w-full py-3 rounded-lg bg-[#02040a] hover:bg-slate-800 text-xs font-bold tracking-wider text-center text-slate-200 border border-slate-800 flex items-center justify-center gap-2 transition"
-                  >
-                    Explore System Blueprint <FaExternalLinkAlt className="text-[9px] text-cyan-400" />
-                  </button>
+
+                <div className="space-y-2">
+
+                  <span className="text-[10px] font-mono font-black text-cyan-400 tracking-wider uppercase bg-cyan-500/5 px-2 py-0.5 rounded border border-cyan-500/10 inline-block">
+                    {ach.metric}
+                  </span>
+
+                  <h4 className="text-base font-extrabold text-white group-hover:text-cyan-400 transition-colors">
+                    {ach.title}
+                  </h4>
+
+                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                    {ach.desc}
+                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* NEW: Achievements & Certifications Section */}
-      <section id="credentials" className="py-24 bg-[#03060e]/40 border-b border-slate-900/80 px-6 md:px-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-2 mb-16">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-400 block">System Validation</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">Achievements & Certifications</h2>
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            
-            {/* Left Side: Certifications Registry */}
-            <div className="lg:col-span-7 space-y-5">
-              <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2 mb-6">
-                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span> Industry Verifications
-              </h3>
-
-              <div className="space-y-4">
-                {certificationData.map((cert, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.08 }}
-                    whileHover={{ x: 6, borderLeftColor: "#22d3ee" }}
-                    className="p-5 rounded-xl bg-slate-900/20 border-l-2 border-transparent border-t border-r border-b border-slate-800/60 backdrop-blur-sm flex gap-4 items-center justify-between group transition-all"
-                  >
-                    <div className="flex gap-4 items-center">
-                      <div className="w-11 h-11 rounded-lg bg-[#02040a] border border-slate-800 flex items-center justify-center text-lg shrink-0 shadow-inner group-hover:scale-105 transition-transform">
-                        {cert.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-sm md:text-base font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">{cert.title}</h4>
-                        <p className="text-xs text-slate-400 mt-0.5">{cert.issuer} • <span className="font-mono text-slate-500">{cert.id}</span></p>
-                      </div>
-                    </div>
-                    <span className="text-xs font-mono font-bold text-slate-500 bg-slate-900 px-2.5 py-1 rounded border border-slate-800 shrink-0">{cert.date}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Side: Milestones / Achievements */}
-            <div className="lg:col-span-5 space-y-5">
-              <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2 mb-6">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span> Competitive Performance
-              </h3>
-
-              <div className="space-y-4">
-                {achievementData.map((ach, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.1 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-slate-900/40 to-slate-950/20 border border-slate-800 relative overflow-hidden group shadow-xl"
-                  >
-                    <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all text-6xl pointer-events-none">
-                      {ach.icon}
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="text-xl mt-1">{ach.icon}</div>
-                      <div className="space-y-2">
-                        <span className="text-[10px] font-mono font-black text-cyan-400 tracking-wider uppercase bg-cyan-500/5 px-2 py-0.5 rounded border border-cyan-500/10 inline-block">{ach.metric}</span>
-                        <h4 className="text-base font-extrabold text-white group-hover:text-cyan-400 transition-colors">{ach.title}</h4>
-                        <p className="text-xs text-slate-400 leading-relaxed font-normal">{ach.desc}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
       {/* Dynamic Immersive Project Modal Blueprint Overlay */}
       <AnimatePresence>
@@ -750,116 +898,151 @@ export default function App() {
           </div>
         </div>
       </section>
-      
 
 
 
-     {/* Network Mailbox Form (Contact Replaced with Social Grid Matrix) */}
-<section id="contact" className="py-24 px-6 md:px-16 max-w-3xl mx-auto">
+  {/* Network Mailbox Form (Contact Replaced with Social 3-Column Grid Matrix) */}
+<section id="contact" className="py-24 px-4 sm:px-6 md:px-16 max-w-5xl mx-auto">
   <div className="text-center space-y-2 mb-12">
     <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 block">Connection Hub</span>
     <h2 className="text-3xl font-black text-white tracking-tight">Initiate Interview Pipelines</h2>
     <p className="text-xs text-slate-500 font-mono max-w-md mx-auto">
-      Select a communications endpoint below to sync up regarding engineering requirements or recruitment vacancies.
+      Select a communications endpoint or scan the protocol block to sync up on mobile.
     </p>
   </div>
 
-  {/* High-Fidelity Glassmorphic Dashboard Panel */}
+  {/* Widened High-Fidelity Glassmorphic Dashboard Panel */}
   <div className="bg-slate-900/10 border border-slate-900 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md">
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       
-      {/* LinkedIn Node */}
-      <motion.a
-        href="https://linkedin.com/in/vishal-l-shettigar"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.99 }}
-        className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-cyan-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-      >
-        <div className="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-          <FaLinkedin className="text-lg" />
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">LinkedIn Protocol</span>
-          <span className="text-xs font-semibold mt-0.5">vishal-l-shettigar</span>
-        </div>
-      </motion.a>
+      {/* LEFT SIDE: Social Endpoint Links */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-2">
+        
+        {/* LinkedIn Node */}
+        <motion.a
+          href="https://linkedin.com/in/vishal-l-shettigar"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.99 }}
+          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-cyan-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
+        >
+          <div className="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
+            <FaLinkedin className="text-lg" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">LinkedIn Protocol</span>
+            <span className="text-xs font-semibold mt-0.5">vishal-l-shettigar</span>
+          </div>
+        </motion.a>
 
-      {/* GitHub Node */}
-      <motion.a
-        href="https://github.com/VishalLShettigar"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.99 }}
-        className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-slate-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-      >
-        <div className="w-10 h-10 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shadow-md">
-          <FaGithub className="text-lg" />
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">GitHub Repository</span>
-          <span className="text-xs font-semibold mt-0.5">VishalLShettigar</span>
-        </div>
-      </motion.a>
+        {/* GitHub Node */}
+        <motion.a
+          href="https://github.com/VishalLShettigar"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.99 }}
+          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-slate-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
+        >
+          <div className="w-10 h-10 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shadow-md">
+            <FaGithub className="text-lg" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">GitHub Repository</span>
+            <span className="text-xs font-semibold mt-0.5">VishalLShettigar</span>
+          </div>
+        </motion.a>
 
-     {/* Email Link Node (Routed Direct to Inbox Dashboard) */}
-<motion.a
-  href="https://mail.google.com/mail/u/0/#inbox" // Launches directly into the user's primary logged-in Gmail inbox
-  target="_blank"
-  rel="noopener noreferrer"
-  whileHover={{ scale: 1.02, y: -2 }}
-  whileTap={{ scale: 0.99 }}
-  className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-blue-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
->
-  <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-900/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-    <FaEnvelope className="text-lg" />
-  </div>
-  <div className="flex flex-col">
-    <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Mail Terminal</span>
-    <span className="text-xs font-semibold mt-0.5">lsvishalshettigar@gmail.com</span>
-  </div>
-</motion.a>
+        {/* Email Link Node */}
+        <motion.a
+          href="https://mail.google.com/mail/u/0/#inbox"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.99 }}
+          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-blue-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
+        >
+          <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-900/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
+            <FaEnvelope className="text-lg" />
+          </div>
+          <div className="flex flex-col max-w-[180px] sm:max-w-none">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Mail Terminal</span>
+            <span className="text-xs font-semibold mt-0.5 truncate">lsvishalshettigar@gmail.com</span>
+          </div>
+        </motion.a>
 
-      {/* Direct Line / Phone Node */}
-      <motion.a
-        href="tel:+91XXXXXXXXXX" // Replace with your real mobile number sequence
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.99 }}
-        className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-emerald-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-      >
-        <div className="w-10 h-10 rounded-lg bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-          <FaPhone className="text-base" />
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Comms Relay (Phone)</span>
-          <span className="text-xs font-semibold mt-0.5">+91 96631 35942</span>
-        </div>
-      </motion.a>
+        {/* Direct Line / Phone Node */}
+        <motion.a
+          href="tel:+919663135942"
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.99 }}
+          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-emerald-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
+        >
+          <div className="w-10 h-10 rounded-lg bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
+            <FaPhone className="text-base" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Comms Relay (Phone)</span>
+            <span className="text-xs font-semibold mt-0.5">+91 96631 35942</span>
+          </div>
+        </motion.a>
 
-      {/* Instagram Node */}
-      <motion.a
-        href="https://instagram.com/_.vishalshettigar._" // Replace with your real instagram handle URL
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.99 }}
-        className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-pink-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer sm:col-span-2"
-      >
-        <div className="w-10 h-10 rounded-lg bg-pink-950/40 border border-pink-900/30 flex items-center justify-center text-pink-400 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
-          <FaInstagram className="text-lg" />
+        {/* Instagram Node (Takes up the bottom full row of the left sub-grid) */}
+        <motion.a
+          href="https://instagram.com/_.vishalshettigar._"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02, y: -2 }}
+          whileTap={{ scale: 0.99 }}
+          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-pink-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer sm:col-span-2"
+        >
+          <div className="w-10 h-10 rounded-lg bg-pink-950/40 border border-pink-900/30 flex items-center justify-center text-pink-400 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
+            <FaInstagram className="text-lg" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Visual Stream</span>
+            <span className="text-xs font-semibold mt-0.5">@_.vishalshettigar._</span>
+          </div>
+        </motion.a>
+      </div>
+
+      {/* RIGHT SIDE: Dedicated 3-Row Height QR Code Panel Component */}
+      <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-[#02040a]/80 border border-slate-900 text-center relative overflow-hidden group min-h-[260px] sm:col-span-2 lg:col-span-1">
+        {/* Tech Ambient Radial Background Glow */}
+        <div className="absolute -inset-10 bg-gradient-to-b from-cyan-500/5 to-transparent rounded-xl blur-xl pointer-events-none group-hover:scale-105 transition-transform duration-500"></div>
+        
+        <div className="relative z-10 flex flex-col items-center justify-center space-y-4 w-full">
+          <div className="flex items-center justify-center gap-2 text-cyan-400">
+            <FaMobileAlt className="text-sm animate-pulse" />
+            <span className="text-[10px] font-mono font-bold tracking-widest uppercase">Mobile Sync Protocol</span>
+          </div>
+
+          {/* Expanded Beautiful High-Contrast QR Code */}
+          <motion.div 
+            whileHover={{ scale: 1.05, rotate: 1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="bg-white p-3 rounded-xl shadow-[0_0_30px_rgba(34,211,238,0.1)] border border-cyan-500/10 cursor-pointer"
+          >
+            <img 
+              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=02040a&bgcolor=ffffff&data=https://vishal-l-shettigar.vercel.app/" 
+              alt="Portfolio Link Matrix"
+              className="w-32 h-32 md:w-36 md:h-36 object-contain block"
+            />
+          </motion.div>
+
+          <div className="space-y-1">
+            <h4 className="text-xs font-bold text-slate-200">View on Smartphone</h4>
+            <p className="text-[11px] text-slate-500 max-w-[180px] mx-auto leading-relaxed">
+              Scan this encryption block to load the live environment instantly.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Visual Stream (Instagram)</span>
-          <span className="text-xs font-semibold mt-0.5">@_.vishalshettigar._</span>
-        </div>
-      </motion.a>
+      </div>
 
     </div>
   </div>
 </section>
-
 
       {/* Footer Ecosystem */}
       <footer className="text-center py-8 border-t border-slate-900 bg-[#02040a] text-[10px] tracking-widest text-slate-600 font-mono">
