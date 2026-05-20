@@ -674,7 +674,7 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
           </h3>
 
           {/* VIEW ALL BUTTON */}
-          {achievementData.length > 3 && (
+          {achievementData.length > 2 && (
             <button
               onClick={() =>
                 setShowAllAchievements(!showAllAchievements)
