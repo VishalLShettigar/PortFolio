@@ -692,7 +692,7 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
         <div className="space-y-4">
           {(showAllAchievements
             ? achievementData
-            : achievementData.slice(0, 3)
+            : achievementData.slice(0, 2)
           ).map((ach, index) => (
             <motion.div
               key={index}
