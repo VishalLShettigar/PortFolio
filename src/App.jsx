@@ -85,11 +85,25 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
 
   const projectData = [
     {
+      title: "CareerSaathi",
+      subtitle: "AI Resume Analyzer & Job Portal",
+      category: "AI & Full-Stack Development",
+      shortDesc: "AI-powered resume screening and recruitment platform using Python, Flask, NLP, automated scoring, and candidate ranking. ",
+      longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
+      stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic"],
+      images: [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+      ],
+      metrics: ["Reduces triage routing delay by 85%", "Multilingual string token processing", "Zero-dependency internal lookup arrays"]
+    },
+    {
       title: "Complaint Route AI",
       subtitle: "Enterprise AI Triage System",
       category: "AI & Full-Stack Development",
-      shortDesc: "Automated multilingual triage system parsing and routing inbound records smoothly using Python and Flask micro-framework arrays.",
-      longDesc: "This industrial-grade triage system parses multi-channel user communication arrays, converts text records into structured profiles, and instantly assigns tickets to the exact business department required. It drastically cuts down organizational latency, ensures 24/7 reliability, and features a clean web interface built with pure responsive layouts.",
+      shortDesc: "AI-powered resume screening and recruitment platform using Python, Flask, NLP, automated scoring, and candidate ranking. ",
+      longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
       stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic"],
       images: [
         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
@@ -158,39 +172,77 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
 
   const certificationData = [
     {
-      title: "Advanced Full-Stack Engineering Blueprint",
-      issuer: "Global Tech Academy",
-      id: "AUTH-9832-XN",
-      date: "2025",
-      icon: <FaCertificate className="text-cyan-400" />
+      title: "Certification Program in Python Programming",
+      issuer: "EduBridge Learning",
+      id: "EBEONO9251229703",
+      date: "November 2025",
+      icon: <FaCertificate className="text-cyan-400" />,
+      link: 'https://www.edubridgeindia.com/certificate-detail?enrollment_number=EBEON09251229703',
+
     },
     {
-      title: "Machine Learning & Computer Vision Arrays",
-      issuer: "AI Research Institute",
-      id: "AUTH-4012-ML",
-      date: "2025",
-      icon: <FaAward className="text-blue-400" />
+      title: "Fundamentals of Java Full Stack Program",
+      issuer: "nasscom",
+      id: "FSP/2025/11/10246164",
+      date: "November 2025",
+      icon: <FaAward className="text-blue-400" />,
+    link: 'https://inspiration-fun-7467.my.salesforce-sites.com/CDACcertificatePage2?id=a02Vy00000bciPrIAI',
     },
     {
-      title: "Structured Data Schemas & Query Optimization",
-      issuer: "Database Systems Lab",
-      id: "AUTH-7721-SQL",
-      date: "2024",
-      icon: <FaMedal className="text-indigo-400" />
+      title: "Graphic Design",
+      issuer: "Adobe",
+      id: "L3GVNRFM2T73L",
+      date: "October 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://www.coursera.org/account/accomplishments/verify/L3GVNRFM2T73',
     },
      {
-      title: "Structured Data Schemas & Query Optimization",
-      issuer: "Database Systems Lab",
-      id: "AUTH-7721-SQL",
-      date: "2024",
-      icon: <FaMedal className="text-indigo-400" />
+      title: "Generative AI Content Creation",
+      issuer: "Adobe",
+      id: "A5VV4QD5GCTW",
+      date: "September 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://www.coursera.org/account/accomplishments/records/A5VV4QD5GCTW',
     },
     {
-      title: "Structured Data Schemas & Query Optimization",
-      issuer: "Database Systems Lab",
+      title: "Introduction to Cybersecurity",
+      issuer: "Cisco",
       id: "AUTH-7721-SQL",
-      date: "2024",
-      icon: <FaMedal className="text-indigo-400" />
+      date: "August 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://www.credly.com/badges/f322eb78-edf2-40a0-8a3e-2f1174fa0f04/linked_in_profile',
+    },
+    {
+      title: "Cybersecurity Fundamentals",
+      issuer: "IBM",
+      id: "PLAN-4FB8400F05FC",
+      date: "August 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://www.credly.com/badges/68d3a639-2572-4021-80e2-8af1c3f476b4/linked_in_profile',
+    },
+    {
+      title: "Tata - Data Visualisation: Empowering Business with Effective Insights Job Simulation",
+      issuer: "Forage",
+      id: "4uZwGNaGxDy46heCg",
+      date: "August 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_L6zcAyqQr2Wmn7Eki_1755708032256_completion_certificate.pdf',
+    },
+    {
+      title: "Web Development Fundamentals",
+      issuer: "IBM",
+      id: "PLAN-8749C02A78EC",
+      date: "July 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://www.credly.com/badges/e557e392-81df-4709-8d04-1ddd63a0d17c/linked_in_profile',
+    },
+    {
+      title: "Tata - Cybersecurity Analyst Job Simulation",
+      issuer: "Forage",
+      id: "hG8EyM8xNrYFHM5dj",
+      date: "August 2025",
+      icon: <FaMedal className="text-indigo-400" />,
+    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_L6zcAyqQr2Wmn7Eki_1754661637975_completion_certificate.pdf',
     }
   ];
 
@@ -309,6 +361,7 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
     </div>
   </div>
 </motion.div>
+
 
         <motion.div 
           variants={containerStagger}
@@ -586,82 +639,186 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
     <div className="grid lg:grid-cols-12 gap-10 items-start">
 
       {/* LEFT SIDE */}
-      <div className="lg:col-span-7 space-y-5">
+<div className="lg:col-span-7 space-y-5">
 
-        <div className="flex items-center justify-between flex-wrap gap-4">
+  {/* HEADER */}
+  <div className="flex items-center justify-between flex-wrap gap-4">
 
-          <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
-            Industry Verifications
-          </h3>
+    <h3 className="text-sm font-mono font-extrabold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
+      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+      Industry Verifications
+    </h3>
 
-          {/* VIEW ALL BUTTON */}
-          {certificationData.length > 3 && (
-            <button
-              onClick={() => setShowAllCerts(!showAllCerts)}
-              className="text-[10px] font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all duration-300"
-            >
-              {showAllCerts
-                ? "Show Less"
-                : `View All (${certificationData.length})`}
-            </button>
-          )}
-        </div>
+    {/* VIEW ALL BUTTON */}
+    {certificationData.length > 3 && (
+      <button
+        onClick={() => setShowAllCerts(!showAllCerts)}
+        className="
+          text-[10px] font-mono font-bold uppercase tracking-wider
+          px-4 py-2 rounded-lg
+          border border-cyan-500/20
+          bg-cyan-500/5
+          text-cyan-400
+          hover:bg-cyan-500
+          hover:text-black
+          hover:border-cyan-400
+          hover:shadow-[0_0_15px_rgba(34,211,238,0.45)]
+          transition-all duration-300
+        "
+      >
+        {showAllCerts
+          ? "Show Less"
+          : `View All (${certificationData.length})`}
+      </button>
+    )}
+  </div>
 
-        {/* CERTIFICATION CARDS */}
-        <div className="space-y-4">
-          {(showAllCerts
-            ? certificationData
-            : certificationData.slice(0, 3)
-          ).map((cert, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 80,
-                damping: 15,
-                delay: index * 0.08
-              }}
-              whileHover={{
-                x: 6,
-                scale: 1.01,
-                borderLeftColor: "#22d3ee"
-              }}
-              className="p-5 rounded-xl bg-slate-900/20 border-l-2 border-transparent border border-slate-800/60 backdrop-blur-sm flex gap-4 items-center justify-between group transition-all duration-300 hover:bg-slate-900/40 hover:border-cyan-500/20"
-            >
+  {/* CERTIFICATION CARDS */}
+  <div className="space-y-4">
 
-              <div className="flex gap-4 items-center">
+    {(showAllCerts
+      ? certificationData
+      : certificationData.slice(0, 3)
+    ).map((cert, index) => (
 
-                <div className="w-11 h-11 rounded-lg bg-[#02040a] border border-slate-800 flex items-center justify-center text-lg shrink-0 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                  {cert.icon}
-                </div>
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 15,
+          delay: index * 0.08
+        }}
 
-                <div>
-                  <h4 className="text-sm md:text-base font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
-                    {cert.title}
-                  </h4>
+        whileHover={{
+          x: 6,
+          scale: 1.01,
+          borderLeftColor: "#22d3ee"
+        }}
 
-                  <p className="text-xs text-slate-400 mt-0.5">
-                    {cert.issuer}
-                    <span className="text-slate-600 mx-2">•</span>
+        className="
+          p-5 rounded-xl
+          bg-slate-900/20
+          border-l-2 border-transparent
+          border border-slate-800/60
+          backdrop-blur-sm
+          flex gap-4 items-center justify-between
+          group
+          transition-all duration-300
+          hover:bg-slate-900/40
+          hover:border-cyan-500/20
+        "
+      >
 
-                    <span className="font-mono text-slate-500">
-                      {cert.id}
-                    </span>
-                  </p>
-                </div>
-              </div>
+        {/* LEFT CONTENT */}
+        <div className="flex gap-4 items-center">
 
-              <span className="text-xs font-mono font-bold text-slate-500 bg-slate-900 px-2.5 py-1 rounded border border-slate-800 shrink-0">
-                {cert.date}
+          {/* ICON */}
+          <div className="
+            w-11 h-11 rounded-lg
+            bg-[#02040a]
+            border border-slate-800
+            flex items-center justify-center
+            text-lg shrink-0
+            shadow-inner
+            group-hover:scale-110
+            transition-transform duration-300
+          ">
+            {cert.icon}
+          </div>
+
+          {/* TEXT */}
+          <div>
+            <h4 className="
+              text-sm md:text-base
+              font-bold text-white
+              group-hover:text-cyan-400
+              transition-colors duration-200
+            ">
+              {cert.title}
+            </h4>
+
+            <p className="text-xs text-slate-400 mt-0.5">
+              {cert.issuer}
+
+              <span className="text-slate-600 mx-2">
+                •
               </span>
-            </motion.div>
-          ))}
+
+              <span className="font-mono text-slate-500">
+                {cert.id}
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
+
+        {/* RIGHT SIDE */}
+        <div className="flex flex-col items-end gap-2 shrink-0">
+
+          {/* DATE */}
+          <span className="
+            text-xs font-mono font-bold
+            text-slate-500
+            bg-slate-900
+            px-2.5 py-1
+            rounded border border-slate-800
+          ">
+            {cert.date}
+          </span>
+
+          {/* VIEW CERTIFICATE BUTTON */}
+          <a
+            href={cert.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group/btn
+              inline-flex items-center gap-1.5
+
+              text-[10px]
+              font-mono font-bold uppercase tracking-wider
+
+              px-3 py-2 rounded-lg
+
+              border border-cyan-500/20
+              bg-cyan-500/5
+              text-cyan-400
+
+              backdrop-blur-md
+
+              transition-all duration-300
+
+              hover:bg-cyan-500
+              hover:text-black
+              hover:border-cyan-400
+              hover:shadow-[0_0_18px_rgba(34,211,238,0.45)]
+              hover:scale-105
+
+              active:scale-95
+            "
+          >
+
+            {/* ICON */}
+            <span className="
+              group-hover/btn:rotate-12
+              transition-transform duration-300
+            ">
+              📜
+            </span>
+
+            View
+          </a>
+
+        </div>
+
+      </motion.div>
+
+    ))}
+  </div>
+</div>
 
       {/* RIGHT SIDE */}
       <div className="lg:col-span-5 space-y-5">
