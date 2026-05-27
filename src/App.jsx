@@ -59,6 +59,17 @@ export default function App() {
 const [showAllAchievements, setShowAllAchievements] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
 
+  const aboutImages = [
+  "/Photos/Profile/photo2.jpeg",
+  "/Photos/Profile/photo1.jpeg",
+  "/Photos/Profile/photo3.jpeg",
+  "/Photos/Profile/photo6.jpeg",
+  "/Photos/Profile/photo7.jpeg"
+  
+];
+
+const [aboutIndex, setAboutIndex] = useState(0);
+
   const skillsData = [
     {
       category: "Frontend Architecture",
@@ -90,27 +101,67 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
       category: "AI & Full-Stack Development",
       shortDesc: "AI-powered resume screening and recruitment platform using Python, Flask, NLP, automated scoring, and candidate ranking. ",
       longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
-      stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic"],
+      stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic","SQLite"],
       images: [
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+        "../public/Photos/CareerSaathi/CareerSaathi1.png",
+        "../public/Photos/CareerSaathi/CareerSaathi2.png",
+        "../public/Photos/CareerSaathi/CareerSaathi3.png",
+        "../public/Photos/CareerSaathi/CareerSaathi4.png",
+        "../public/Photos/CareerSaathi/CareerSaathi5.png",
+        "../public/Photos/CareerSaathi/CareerSaathi6.png",
+        "../public/Photos/CareerSaathi/CareerSaathi7.png",
+        "../public/Photos/CareerSaathi/CareerSaathi8.png",
+        "../public/Photos/CareerSaathi/CareerSaathi9.png",
+        "../public/Photos/CareerSaathi/CareerSaathi10.png",
+        "../public/Photos/CareerSaathi/CareerSaathi11.png",
+        "../public/Photos/CareerSaathi/CareerSaathi12.png"
       ],
-      metrics: ["Reduces triage routing delay by 85%", "Multilingual string token processing", "Zero-dependency internal lookup arrays"]
+      metrics: ["AI-powered resume scoring and ranking system","Automated PDF/DOCX resume parsing accuracy","Instant recruiter-side applicant screening","Interactive analytics and resume visualization","Reduced manual recruitment processing time"]
     },
     {
       title: "Complaint Route AI",
       subtitle: "Enterprise AI Triage System",
-      category: "AI & Full-Stack Development",
+      category: "Flask-Based Mini Project",
       shortDesc: "AI-powered resume screening and recruitment platform using Python, Flask, NLP, automated scoring, and candidate ranking. ",
       longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
       stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic"],
       images: [
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+        "../public/Photos/Complaint-Routing/Complaint-Route1.png",
+        "../public/Photos/Complaint-Routing/Complaint-Route2.png",
+        "../public/Photos/Complaint-Routing/Complaint-Route3.png",
+        "../public/Photos/Complaint-Routing/Complaint-Route4.png"
       ],
-      metrics: ["Reduces triage routing delay by 85%", "Multilingual string token processing", "Zero-dependency internal lookup arrays"]
+      metrics: ["Automated multi-department ticket assignment","Structured communication record parsing","24/7 intelligent request routing workflow","Reduced organizational response latency","Responsive real-time support interface"]
+    },
+    {
+      title: "Traffic Sign Classifier & Search",
+      subtitle: "Intelligent Traffic Sign Detection and Search Platform",
+      category: "Machine Learning Mini Project",
+      shortDesc: "AI-powered traffic sign classification and search platform using CNN, multilingual support, and online information retrieval.",
+      longDesc: "Traffic Sign Classifier & Search is an AI-powered web application using CNN and Flask to classify traffic signs, search sign information online, provide multilingual support, fetch Google and Wikipedia data, and email prediction results, promoting driver education, traffic monitoring, and road safety awareness.",
+      stack: ["Python", "CSS", "HTML", "Flask", "Google Custom Search API","Tensorflow"],
+      images: [
+        "../public/Photos/Traffic-sign/traffic1.png",
+        "../public/Photos/Traffic-sign/traffic2.png",
+        "../public/Photos/Traffic-sign/traffic3.png"
+      ],
+      metrics: ["43-class CNN-based traffic sign prediction","Real-time image classification processing","Integrated multilingual sign information retrieval","Fast Google and Wikipedia data fetching","Improved road safety awareness assistance"]
+    },
+    {
+      title: "PatraVision",
+      subtitle: "AI-Powered Vision for Plant Health",
+      category: "AI & Machine Learning Mini Project",
+      shortDesc: "High-fidelity real-world web application built to enforce absolute state integrity and bulletproof voter metric tracking.",
+      longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
+      stack: ["Python", "CSS", "HTML", "Flask", "Machine Learning","Tensorflow"],
+      images: [
+        "../public/Photos/PatraVision/PatraVision-Image1.png",
+        "../public/Photos/PatraVision/PatraVision-Image2.png",
+        "../public/Photos/PatraVision/PatraVision-Image3.png",
+        "../public/Photos/PatraVision/PatraVision-Image4.png",
+        "../public/Photos/PatraVision/PatraVision-Image5.png"
+      ],
+      metrics: ["38-class plant disease recognition model","High-speed leaf image prediction system","AI-powered crop disease identification","Automated agricultural health monitoring","Interactive disease detection visualization"]
     },
     {
       title: "Online Voting Portal",
@@ -127,46 +178,22 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
       metrics: ["100% accurate database transaction parsing", "Zero state manipulation risk arrays", "Sub-millisecond interface updates"]
     },
     {
-      title: "Online Voting Portal",
+      title: "Matadaan",
       subtitle: "Secure Real-Time Election Engine",
       category: "Full-Stack Web Application",
-      shortDesc: "High-fidelity real-world web application built to enforce absolute state integrity and bulletproof voter metric tracking.",
-      longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
-      stack: ["React.js", "Tailwind CSS", "Node.js", "MySQL", "State Management Layer"],
-      images: [
-        "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+      shortDesc: "Secure college online voting system with authentication, candidate management, and real-time transparent election monitoring.",
+      longDesc: "Matadaan is a secure online college voting system using HTML, CSS, JavaScript, and Microsoft Access to enable authenticated digital elections, candidate management, real-time result monitoring, and transparent voting processes while providing an interactive and user-friendly interface for students and administrators.",
+      stack: ["HTML", "CSS", "JavaScript", "ASP.NET", "Microsoft Access"],
+      images: [ 
+        "../public/Photos/Matadaan/Matadaan1.png",
+        "../public/Photos/Matadaan/Matadaan2.png",
+        "../public/Photos/Matadaan/Matadaan3.png",
+        "../public/Photos/Matadaan/Matadaan4.png",
+        "../public/Photos/Matadaan/Matadaan5.png",
+        "../public/Photos/Matadaan/Matadaan6.png",
+        "../public/Photos/Matadaan/Matadaan7.png",
       ],
-      metrics: ["100% accurate database transaction parsing", "Zero state manipulation risk arrays", "Sub-millisecond interface updates"]
-    },
-    {
-      title: "Online Voting Portal",
-      subtitle: "Secure Real-Time Election Engine",
-      category: "Full-Stack Web Application",
-      shortDesc: "High-fidelity real-world web application built to enforce absolute state integrity and bulletproof voter metric tracking.",
-      longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
-      stack: ["React.js", "Tailwind CSS", "Node.js", "MySQL", "State Management Layer"],
-      images: [
-        "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-      ],
-      metrics: ["100% accurate database transaction parsing", "Zero state manipulation risk arrays", "Sub-millisecond interface updates"]
-    },
-    {
-      title: "Online Voting Portal",
-      subtitle: "Secure Real-Time Election Engine",
-      category: "Full-Stack Web Application",
-      shortDesc: "High-fidelity real-world web application built to enforce absolute state integrity and bulletproof voter metric tracking.",
-      longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
-      stack: ["React.js", "Tailwind CSS", "Node.js", "MySQL", "State Management Layer"],
-      images: [
-        "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-      ],
-      metrics: ["100% accurate database transaction parsing", "Zero state manipulation risk arrays", "Sub-millisecond interface updates"]
+      metrics: ["Secure authenticated online voting workflow","Real-time election result management","Transparent digital vote processing system","Fast candidate and voter administration","Reliable database-driven election monitoring"]
     }
   ];
 
@@ -417,22 +444,105 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
       <section id="about" className="py-24 px-6 md:px-16 max-w-6xl mx-auto border-t border-slate-900/60">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
-          <motion.div 
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 60, damping: 15 }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-2xl blur-xl opacity-10"></div>
-            <motion.img
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-              alt="Clean IDE window showing high complexity production source loops"
-              className="rounded-xl border border-slate-800 object-cover shadow-2xl relative z-10 w-full aspect-[4/3] lg:aspect-square brightness-[0.8] contrast-[1.1]"
-            />
-          </motion.div>
+          <motion.div
+  initial={{ opacity: 0, x: -60 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, margin: "-100px" }}
+  transition={{
+    type: "spring",
+    stiffness: 70,
+    damping: 16,
+  }}
+  className="lg:col-span-5 relative"
+>
+
+  {/* Glow Background */}
+  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-blue-500/10 to-indigo-500/20 rounded-3xl blur-2xl"></div>
+
+  {/* Main Image Container */}
+  <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_0_40px_rgba(34,211,238,0.08)] group">
+
+    {/* Main Image */}
+    <motion.img
+      key={aboutIndex}
+      initial={{ opacity: 0, scale: 1.08 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      src={aboutImages[aboutIndex]}
+      alt="Portfolio showcase"
+      className="w-full aspect-[4/3] lg:aspect-square object-cover brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition duration-700"
+    />
+
+    {/* Left Button */}
+    <button
+      onClick={() =>
+        setAboutIndex(
+          aboutIndex === 0
+            ? aboutImages.length - 1
+            : aboutIndex - 1
+        )
+      }
+      className="absolute left-4 top-1/2 -translate-y-1/2
+      w-10 h-10 rounded-full
+      bg-black/50 backdrop-blur-md
+      border border-white/10
+      text-white hover:bg-cyan-500
+      hover:text-black transition-all duration-300"
+    >
+      ❮
+    </button>
+
+    {/* Right Button */}
+    <button
+      onClick={() =>
+        setAboutIndex(
+          aboutIndex === aboutImages.length - 1
+            ? 0
+            : aboutIndex + 1
+        )
+      }
+      className="absolute right-4 top-1/2 -translate-y-1/2
+      w-10 h-10 rounded-full
+      bg-black/50 backdrop-blur-md
+      border border-white/10
+      text-white hover:bg-cyan-500
+      hover:text-black transition-all duration-300"
+    >
+      ❯
+    </button>
+
+    {/* Bottom Gradient */}
+    <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#020617] via-[#020617]/60 to-transparent"></div>
+
+    {/* Floating Tag */}
+    <div className="absolute bottom-5 left-5 z-10">
+      <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold text-cyan-400 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/20">
+        VISHAL L SHETTIGAR
+      </span>
+    </div>
+  </div>
+
+  {/* Thumbnail Track */}
+  <div className="flex justify-center gap-3 mt-5 flex-wrap">
+    {aboutImages.map((img, idx) => (
+      <button
+        key={idx}
+        onClick={() => setAboutIndex(idx)}
+        className={`relative overflow-hidden rounded-xl border transition-all duration-300 ${
+          aboutIndex === idx
+            ? "border-cyan-400 scale-105"
+            : "border-white/10 opacity-60"
+        }`}
+      >
+        <img
+          src={img}
+          alt=""
+          className="w-16 h-16 object-cover"
+        />
+      </button>
+    ))}
+  </div>
+</motion.div>
 
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
@@ -933,7 +1043,7 @@ const [showAllAchievements, setShowAllAchievements] = useState(false);
                 
                 {/* Visual Slide Frame Panel */}
                 <div className="md:col-span-6 space-y-3">
-                  <div className="h-56 md:h-72 w-full rounded-xl bg-slate-950 border border-slate-900 overflow-hidden relative group">
+                  <div className="h-56 md:h-100 w-full rounded-xl bg-slate-950 border border-slate-900 overflow-hidden relative group">
                     <img 
                       src={selectedProject.images[currentImgIndex]} 
                       alt="Production deployment subsystem interface capture frame" 
