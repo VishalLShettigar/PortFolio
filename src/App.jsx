@@ -142,9 +142,9 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "Traffic Sign Classifier & Search is an AI-powered web application using CNN and Flask to classify traffic signs, search sign information online, provide multilingual support, fetch Google and Wikipedia data, and email prediction results, promoting driver education, traffic monitoring, and road safety awareness.",
       stack: ["Python", "CSS", "HTML", "Flask", "Google Custom Search API","Tensorflow"],
       images: [
-        "../public/Photos/Traffic-sign/traffic1.png",
-        "../public/Photos/Traffic-sign/traffic2.png",
-        "../public/Photos/Traffic-sign/traffic3.png"
+        "../public/Photos/Traffic-Sign/traffic1.png",
+        "../public/Photos/Traffic-Sign/traffic2.png",
+        "../public/Photos/Traffic-Sign/traffic3.png"
       ],
       metrics: ["43-class CNN-based traffic sign prediction","Real-time image classification processing","Integrated multilingual sign information retrieval","Fast Google and Wikipedia data fetching","Improved road safety awareness assistance"]
     },
@@ -186,13 +186,13 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "Matadaan is a secure online college voting system using HTML, CSS, JavaScript, and Microsoft Access to enable authenticated digital elections, candidate management, real-time result monitoring, and transparent voting processes while providing an interactive and user-friendly interface for students and administrators.",
       stack: ["HTML", "CSS", "JavaScript", "ASP.NET", "Microsoft Access"],
       images: [ 
-        "../public/Photos/Matadaan/Matadaan1.png",
-        "../public/Photos/Matadaan/Matadaan2.png",
-        "../public/Photos/Matadaan/Matadaan3.png",
-        "../public/Photos/Matadaan/Matadaan4.png",
-        "../public/Photos/Matadaan/Matadaan5.png",
-        "../public/Photos/Matadaan/Matadaan6.png",
-        "../public/Photos/Matadaan/Matadaan7.png",
+        "/Photos/Matadaan/Matadaan1.png",
+        "/Photos/Matadaan/Matadaan2.png",
+        "/Photos/Matadaan/Matadaan3.png",
+        "/Photos/Matadaan/Matadaan4.png",
+        "/Photos/Matadaan/Matadaan5.png",
+        "/Photos/Matadaan/Matadaan6.png",
+        "/Photos/Matadaan/Matadaan7.png",
       ],
       metrics: ["Secure authenticated online voting workflow","Real-time election result management","Transparent digital vote processing system","Fast candidate and voter administration","Reliable database-driven election monitoring"]
     }
