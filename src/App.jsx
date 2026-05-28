@@ -104,18 +104,18 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
       stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic","SQLite"],
       images: [
-        "../public/Photos/CareerSaathi/CareerSaathi1.png",
-        "../public/Photos/CareerSaathi/CareerSaathi2.png",
-        "../public/Photos/CareerSaathi/CareerSaathi3.png",
-        "../public/Photos/CareerSaathi/CareerSaathi4.png",
-        "../public/Photos/CareerSaathi/CareerSaathi5.png",
-        "../public/Photos/CareerSaathi/CareerSaathi6.png",
-        "../public/Photos/CareerSaathi/CareerSaathi7.png",
-        "../public/Photos/CareerSaathi/CareerSaathi8.png",
-        "../public/Photos/CareerSaathi/CareerSaathi9.png",
-        "../public/Photos/CareerSaathi/CareerSaathi10.png",
-        "../public/Photos/CareerSaathi/CareerSaathi11.png",
-        "../public/Photos/CareerSaathi/CareerSaathi12.png"
+        "/Photos/CareerSaathi/CareerSaathi1.png",
+        "/Photos/CareerSaathi/CareerSaathi2.png",
+        "/Photos/CareerSaathi/CareerSaathi3.png",
+        "/Photos/CareerSaathi/CareerSaathi4.png",
+        "/Photos/CareerSaathi/CareerSaathi5.png",
+        "/Photos/CareerSaathi/CareerSaathi6.png",
+        "/Photos/CareerSaathi/CareerSaathi7.png",
+        "/Photos/CareerSaathi/CareerSaathi8.png",
+        "/Photos/CareerSaathi/CareerSaathi9.png",
+        "/Photos/CareerSaathi/CareerSaathi10.png",
+        "/Photos/CareerSaathi/CareerSaathi11.png",
+        "/Photos/CareerSaathi/CareerSaathi12.png"
       ],
       metrics: ["AI-powered resume scoring and ranking system","Automated PDF/DOCX resume parsing accuracy","Instant recruiter-side applicant screening","Interactive analytics and resume visualization","Reduced manual recruitment processing time"]
     },
@@ -127,10 +127,10 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "CareerSaathi is an AI-powered recruitment platform using Python, Flask, and NLP to analyze resumes, calculate quality scores, recommend careers, automate applicant screening, rank candidates, generate PDF feedback reports, and visualize resume performance through interactive dashboards, reducing manual recruitment effort and improving hiring efficiency.",
       stack: ["Python", "Flask", "HTML5", "CSS3 Modules", "Machine Learning Logic"],
       images: [
-        "../public/Photos/Complaint-Routing/Complaint-Route1.png",
-        "../public/Photos/Complaint-Routing/Complaint-Route2.png",
-        "../public/Photos/Complaint-Routing/Complaint-Route3.png",
-        "../public/Photos/Complaint-Routing/Complaint-Route4.png"
+        "/Photos/Complaint-Routing/Complaint-Route1.png",
+        "/Photos/Complaint-Routing/Complaint-Route2.png",
+        "/Photos/Complaint-Routing/Complaint-Route3.png",
+        "/Photos/Complaint-Routing/Complaint-Route4.png"
       ],
       metrics: ["Automated multi-department ticket assignment","Structured communication record parsing","24/7 intelligent request routing workflow","Reduced organizational response latency","Responsive real-time support interface"]
     },
@@ -142,9 +142,9 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "Traffic Sign Classifier & Search is an AI-powered web application using CNN and Flask to classify traffic signs, search sign information online, provide multilingual support, fetch Google and Wikipedia data, and email prediction results, promoting driver education, traffic monitoring, and road safety awareness.",
       stack: ["Python", "CSS", "HTML", "Flask", "Google Custom Search API","Tensorflow"],
       images: [
-        "../public/Photos/Traffic-Sign/traffic1.png",
-        "../public/Photos/Traffic-Sign/traffic2.png",
-        "../public/Photos/Traffic-Sign/traffic3.png"
+        "/Photos/Traffic-Sign/traffic1.png",
+        "/Photos/Traffic-Sign/traffic2.png",
+        "/Photos/Traffic-Sign/traffic3.png"
       ],
       metrics: ["43-class CNN-based traffic sign prediction","Real-time image classification processing","Integrated multilingual sign information retrieval","Fast Google and Wikipedia data fetching","Improved road safety awareness assistance"]
     },
@@ -156,11 +156,11 @@ const [aboutIndex, setAboutIndex] = useState(0);
       longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
       stack: ["Python", "CSS", "HTML", "Flask", "Machine Learning","Tensorflow"],
       images: [
-        "../public/Photos/PatraVision/PatraVision-Image1.png",
-        "../public/Photos/PatraVision/PatraVision-Image2.png",
-        "../public/Photos/PatraVision/PatraVision-Image3.png",
-        "../public/Photos/PatraVision/PatraVision-Image4.png",
-        "../public/Photos/PatraVision/PatraVision-Image5.png"
+        "/Photos/PatraVision/PatraVision-Image1.png",
+        "/Photos/PatraVision/PatraVision-Image2.png",
+        "/Photos/PatraVision/PatraVision-Image3.png",
+        "/Photos/PatraVision/PatraVision-Image4.png",
+        "/Photos/PatraVision/PatraVision-Image5.png"
       ],
       metrics: ["38-class plant disease recognition model","High-speed leaf image prediction system","AI-powered crop disease identification","Automated agricultural health monitoring","Interactive disease detection visualization"]
     },
