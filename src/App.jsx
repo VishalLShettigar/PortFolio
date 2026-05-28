@@ -58,6 +58,7 @@ export default function App() {
   const [showAllCerts, setShowAllCerts] = useState(false);
 const [showAllAchievements, setShowAllAchievements] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showProfileCard, setShowProfileCard] = useState(false);
 
   const aboutImages = [
   "/Photos/Profile/photo2.jpeg",
@@ -440,110 +441,541 @@ const [aboutIndex, setAboutIndex] = useState(0);
         </motion.div>
       </section>
 
-      {/* Structural Biography Section */}
-      <section id="about" className="py-24 px-6 md:px-16 max-w-6xl mx-auto border-t border-slate-900/60">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
+
+{/* Structural Biography Section */}
+<section id="about" className="py-24 px-6 md:px-16 max-w-6xl mx-auto border-t border-slate-900/60">
+  <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+    <motion.div
+      initial={{ opacity: 0, x: -60 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{
+        type: "spring",
+        stiffness: 70,
+        damping: 16,
+      }}
+      className="lg:col-span-5 relative"
+    >
+
+      {/* Glow Background */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-blue-500/10 to-indigo-500/20 rounded-3xl blur-2xl"></div>
+
+      {/* Main Image Container */}
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_0_40px_rgba(34,211,238,0.08)] group">
+
+        {/* IMAGE */}
+        <motion.img
+          key={aboutIndex}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          src={aboutImages[aboutIndex]}
+          alt="Portfolio showcase"
+          className="w-full aspect-[4/3] lg:aspect-square object-cover brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition duration-700"
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#020617] via-[#020617]/60 to-transparent"></div>
+
+        {/* NAME */}
+        <div className="absolute bottom-5 left-5 z-10">
+          <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold text-cyan-400 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-cyan-500/20">
+            VISHAL L SHETTIGAR
+          </span>
+        </div>
+      </div>
+
+      {/* BUTTON */}
+      <motion.button
+
+        whileHover={{
+          scale: 1.03,
+          y: -3,
+        }}
+
+        whileTap={{
+          scale: 0.96,
+        }}
+
+        onClick={() => setShowProfileCard(true)}
+
+        className="
+          mt-6
+          w-full
+
+          py-4 rounded-2xl
+
+          bg-gradient-to-r
+          from-cyan-500/10
+          via-blue-500/10
+          to-indigo-500/10
+
+          border border-cyan-500/20
+
+          text-cyan-400
+
+          text-xs
+          font-bold
+          font-mono
+          uppercase
+          tracking-[0.25em]
+
+          backdrop-blur-xl
+
+          transition-all duration-500
+
+          hover:bg-cyan-500
+          hover:text-black
+          hover:border-cyan-400
+
+          hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
+        "
+      >
+        More Information
+      </motion.button>
+
+      {/* MODAL CARD */}
+      <AnimatePresence>
+
+        {showProfileCard && (
+
           <motion.div
-  initial={{ opacity: 0, x: -60 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, margin: "-100px" }}
-  transition={{
-    type: "spring",
-    stiffness: 70,
-    damping: 16,
-  }}
-  className="lg:col-span-5 relative"
+
+            initial={{
+              opacity: 0,
+              scale: 0.85,
+              y: 40,
+            }}
+
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              y: 30,
+            }}
+
+            transition={{
+              duration: 0.45,
+            }}
+
+            className="
+              fixed inset-0 z-[999]
+
+              flex items-center justify-center
+
+              bg-black/70
+              backdrop-blur-md
+
+              p-5
+            "
+          >
+
+           {/* MAIN CARD */}
+<motion.div
+
+  initial={{ y: 30, scale: 0.92 }}
+  animate={{ y: 0, scale: 1 }}
+
+  className="
+    relative
+
+    w-full
+    max-w-3xl
+
+    rounded-[2rem]
+
+    border border-cyan-500/20
+
+    bg-[#060816]/95
+
+    overflow-y-auto
+    max-h-[90vh]
+
+    shadow-[0_0_60px_rgba(34,211,238,0.18)]
+
+    p-6 md:p-8
+  "
 >
 
-  {/* Glow Background */}
-  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-blue-500/10 to-indigo-500/20 rounded-3xl blur-2xl"></div>
+  {/* TOP GLOW */}
+  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500"></div>
 
-  {/* Main Image Container */}
-  <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_0_40px_rgba(34,211,238,0.08)] group">
+  {/* CLOSE BUTTON */}
+  <button
 
-    {/* Main Image */}
-    <motion.img
-      key={aboutIndex}
-      initial={{ opacity: 0, scale: 1.08 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      src={aboutImages[aboutIndex]}
-      alt="Portfolio showcase"
-      className="w-full aspect-[4/3] lg:aspect-square object-cover brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition duration-700"
-    />
+    onClick={() => setShowProfileCard(false)}
 
-    {/* Left Button */}
-    <button
-      onClick={() =>
-        setAboutIndex(
-          aboutIndex === 0
-            ? aboutImages.length - 1
-            : aboutIndex - 1
-        )
-      }
-      className="absolute left-4 top-1/2 -translate-y-1/2
-      w-10 h-10 rounded-full
-      bg-black/50 backdrop-blur-md
-      border border-white/10
-      text-white hover:bg-cyan-500
-      hover:text-black transition-all duration-300"
-    >
-      ❮
-    </button>
+    className="
+      absolute top-4 right-4 z-50
 
-    {/* Right Button */}
-    <button
-      onClick={() =>
-        setAboutIndex(
-          aboutIndex === aboutImages.length - 1
-            ? 0
-            : aboutIndex + 1
-        )
-      }
-      className="absolute right-4 top-1/2 -translate-y-1/2
-      w-10 h-10 rounded-full
-      bg-black/50 backdrop-blur-md
-      border border-white/10
-      text-white hover:bg-cyan-500
-      hover:text-black transition-all duration-300"
-    >
-      ❯
-    </button>
+      w-10 h-10
 
-    {/* Bottom Gradient */}
-    <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#020617] via-[#020617]/60 to-transparent"></div>
+      rounded-xl
 
-    {/* Floating Tag */}
-    <div className="absolute bottom-5 left-5 z-10">
-      <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold text-cyan-400 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/20">
-        VISHAL L SHETTIGAR
-      </span>
+      border border-slate-700
+
+      bg-slate-900/80
+
+      text-slate-400
+
+      flex items-center justify-center
+
+      hover:bg-cyan-500
+      hover:text-black
+      hover:rotate-90
+
+      transition-all duration-300
+    "
+  >
+    ✕
+  </button>
+
+  {/* HEADER */}
+  <div className="mb-8">
+
+    <p className="text-cyan-400 text-[10px] uppercase tracking-[0.35em] font-mono mb-3">
+      Professional Profile
+    </p>
+
+    <h2 className="text-3xl md:text-4xl font-black text-white">
+      Vishal L Shettigar
+    </h2>
+
+    <p className="text-slate-400 mt-4 text-sm leading-relaxed max-w-xl">
+      MCA graduate passionate about Full Stack Development,
+      AI systems, futuristic UI engineering, and modern
+      digital experiences.
+    </p>
+
+  </div>
+
+  {/* GRID */}
+  <div className="grid lg:grid-cols-2 gap-8">
+
+    {/* LEFT SIDE */}
+    <div className="space-y-4">
+
+      {[
+        {
+          title: "Education",
+          value: "Master of Computer Applications",
+          icon: "🎓",
+        },
+
+        {
+          title: "Specialization",
+          value: "Full Stack & AI",
+          icon: "💻",
+        },
+
+        {
+          title: "Location",
+          value: "Karnataka, India",
+          icon: "📍",
+        },
+
+        {
+          title: "Goal",
+          value: "Software Engineer",
+          icon: "🚀",
+        },
+
+      ].map((item, index) => (
+
+        <motion.div
+
+          key={index}
+
+          whileHover={{
+            y: -4,
+            scale: 1.02,
+          }}
+
+          transition={{
+            type: "spring",
+            stiffness: 200,
+          }}
+
+          className="
+            group
+
+            rounded-2xl
+
+            border border-slate-800
+
+            bg-slate-900/40
+
+            p-4
+
+            transition-all duration-300
+
+            hover:border-cyan-500/30
+            hover:bg-slate-900/70
+            hover:shadow-[0_0_25px_rgba(34,211,238,0.12)]
+          "
+        >
+
+          <div className="flex items-start gap-4">
+
+            {/* ICON */}
+            <div className="
+              w-11 h-11
+
+              rounded-xl
+
+              bg-cyan-500/10
+
+              border border-cyan-500/20
+
+              flex items-center justify-center
+
+              text-xl
+
+              group-hover:scale-110
+              group-hover:rotate-6
+
+              transition-all duration-300
+            ">
+              {item.icon}
+            </div>
+
+            {/* TEXT */}
+            <div>
+
+              <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-mono mb-1">
+                {item.title}
+              </p>
+
+              <h4 className="text-white text-sm font-semibold leading-relaxed">
+                {item.value}
+              </h4>
+
+            </div>
+          </div>
+
+        </motion.div>
+
+      ))}
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div>
+
+      <div className="mb-6">
+
+        <p className="text-cyan-400 text-[10px] uppercase tracking-[0.3em] font-mono mb-3">
+          Languages Known
+        </p>
+
+        <h3 className="text-2xl font-bold text-white">
+          Communication Skills
+        </h3>
+
+      </div>
+
+      {/* DONUT GRID */}
+      <div className="grid grid-cols-2 gap-5">
+
+        {[
+          {
+            name: "English",
+            percent: 82,
+            color: "#22d3ee",
+          },
+
+          {
+            name: "Kannada",
+            percent: 98,
+            color: "#3b82f6",
+          },
+
+          {
+            name: "Hindi",
+            percent: 72,
+            color: "#818cf8",
+          },
+
+          {
+            name: "Tulu",
+            percent: 90,
+            color: "#06b6d4",
+          },
+
+        ].map((lang, index) => {
+
+          const radius = 48;
+          const stroke = 9;
+          const normalizedRadius = radius - stroke * 0.5;
+
+          const circumference =
+            normalizedRadius * 2 * Math.PI;
+
+          const strokeDashoffset =
+            circumference -
+            (lang.percent / 100) * circumference;
+
+          return (
+
+            <motion.div
+
+              key={index}
+
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+                y: 20,
+              }}
+
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+
+              transition={{
+                delay: index * 0.1,
+                duration: 0.5,
+              }}
+
+              whileHover={{
+                y: -6,
+                scale: 1.05,
+              }}
+
+              className="
+                group
+
+                relative overflow-hidden
+
+                rounded-3xl
+
+                border border-slate-800
+
+                bg-slate-900/40
+
+                p-4
+
+                flex flex-col items-center
+
+                transition-all duration-300
+
+                hover:border-cyan-500/30
+                hover:bg-slate-900/70
+                hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]
+              "
+            >
+
+              {/* CARD GLOW */}
+              <div className="
+                absolute inset-0
+
+                bg-gradient-to-br
+                from-cyan-500/5
+                to-blue-500/5
+
+                opacity-0
+                group-hover:opacity-100
+
+                transition-all duration-500
+              "></div>
+
+              {/* DONUT */}
+              <div className="relative w-28 h-28">
+
+                <svg
+                  height={radius * 2}
+                  width={radius * 2}
+                  className="rotate-[-90deg]"
+                >
+
+                  {/* BG */}
+                  <circle
+                    stroke="#1e293b"
+                    fill="transparent"
+                    strokeWidth={stroke}
+                    r={normalizedRadius}
+                    cx={radius}
+                    cy={radius}
+                  />
+
+                  {/* PROGRESS */}
+                  <motion.circle
+
+                    initial={{
+                      strokeDashoffset: circumference,
+                    }}
+
+                    animate={{
+                      strokeDashoffset,
+                    }}
+
+                    transition={{
+                      duration: 2,
+                      delay: index * 0.2,
+                    }}
+
+                    strokeLinecap="round"
+
+                    stroke={lang.color}
+
+                    fill="transparent"
+
+                    strokeWidth={stroke}
+
+                    strokeDasharray={`${circumference} ${circumference}`}
+
+                    style={{
+                      strokeDashoffset,
+                      filter: `drop-shadow(0px 0px 8px ${lang.color})`,
+                    }}
+
+                    r={normalizedRadius}
+                    cx={radius}
+                    cy={radius}
+                  />
+
+                </svg>
+
+                {/* CENTER TEXT */}
+                <div className="absolute inset-0 flex items-center justify-center">
+
+                  <span className="text-2xl font-black text-white group-hover:scale-110 transition-transform duration-300">
+                    {lang.percent}%
+                  </span>
+
+                </div>
+              </div>
+
+              {/* LANGUAGE */}
+              <h4 className="mt-4 text-white font-bold tracking-wide">
+                {lang.name}
+              </h4>
+
+            </motion.div>
+
+          );
+
+        })}
+
+      </div>
     </div>
   </div>
-
-  {/* Thumbnail Track */}
-  <div className="flex justify-center gap-3 mt-5 flex-wrap">
-    {aboutImages.map((img, idx) => (
-      <button
-        key={idx}
-        onClick={() => setAboutIndex(idx)}
-        className={`relative overflow-hidden rounded-xl border transition-all duration-300 ${
-          aboutIndex === idx
-            ? "border-cyan-400 scale-105"
-            : "border-white/10 opacity-60"
-        }`}
-      >
-        <img
-          src={img}
-          alt=""
-          className="w-16 h-16 object-cover"
-        />
-      </button>
-    ))}
-  </div>
 </motion.div>
+          </motion.div>
 
+        )}
+
+      </AnimatePresence>
+
+    </motion.div>
+
+    
           <motion.div 
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
