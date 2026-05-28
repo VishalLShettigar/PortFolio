@@ -462,29 +462,262 @@ const [aboutIndex, setAboutIndex] = useState(0);
       <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-blue-500/10 to-indigo-500/20 rounded-3xl blur-2xl"></div>
 
       {/* Main Image Container */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-[0_0_40px_rgba(34,211,238,0.08)] group">
+<div className="
+  relative overflow-hidden
 
-        {/* IMAGE */}
-        <motion.img
-          key={aboutIndex}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          src={aboutImages[aboutIndex]}
-          alt="Portfolio showcase"
-          className="w-full aspect-[4/3] lg:aspect-square object-cover brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition duration-700"
-        />
+  rounded-3xl
 
-        {/* OVERLAY */}
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#020617] via-[#020617]/60 to-transparent"></div>
+  border border-white/10
 
-        {/* NAME */}
-        <div className="absolute bottom-5 left-5 z-10">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold text-cyan-400 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-cyan-500/20">
-            VISHAL L SHETTIGAR
-          </span>
-        </div>
-      </div>
+  bg-white/[0.03]
+
+  backdrop-blur-xl
+
+  shadow-[0_0_40px_rgba(34,211,238,0.08)]
+
+  group
+">
+
+  {/* IMAGE */}
+  <motion.img
+
+    key={aboutIndex}
+
+    initial={{
+      opacity: 0,
+      scale: 1.08,
+      x: 80,
+    }}
+
+    animate={{
+      opacity: 1,
+      scale: 1,
+      x: 0,
+    }}
+
+    transition={{
+      duration: 0.7,
+      ease: "easeInOut",
+    }}
+
+    src={aboutImages[aboutIndex]}
+
+    alt="Portfolio showcase"
+
+    drag="x"
+
+    dragConstraints={{
+      left: 0,
+      right: 0,
+    }}
+
+    onDragEnd={(event, info) => {
+
+      if (info.offset.x < -100) {
+
+        setAboutIndex(
+          aboutIndex === aboutImages.length - 1
+            ? 0
+            : aboutIndex + 1
+        );
+
+      }
+
+      if (info.offset.x > 100) {
+
+        setAboutIndex(
+          aboutIndex === 0
+            ? aboutImages.length - 1
+            : aboutIndex - 1
+        );
+
+      }
+
+    }}
+
+    className="
+      w-full
+      aspect-[4/3]
+      lg:aspect-square
+
+      object-cover
+
+      brightness-[0.92]
+      contrast-[1.05]
+
+      cursor-grab
+      active:cursor-grabbing
+
+      group-hover:scale-105
+
+      transition duration-700
+    "
+  />
+
+  {/* LEFT BUTTON */}
+  <motion.button
+
+    whileHover={{
+      scale: 1.12,
+      x: -2,
+    }}
+
+    whileTap={{
+      scale: 0.92,
+    }}
+
+    onClick={() =>
+      setAboutIndex(
+        aboutIndex === 0
+          ? aboutImages.length - 1
+          : aboutIndex - 1
+      )
+    }
+
+    className="
+      absolute left-4 top-1/2 -translate-y-1/2 z-20
+
+      w-11 h-11
+
+      rounded-2xl
+
+      bg-black/40
+      backdrop-blur-xl
+
+      border border-white/10
+
+      text-white text-lg
+
+      flex items-center justify-center
+
+      opacity-0
+      group-hover:opacity-100
+
+      hover:bg-cyan-500
+      hover:text-black
+      hover:border-cyan-400
+
+      hover:shadow-[0_0_25px_rgba(34,211,238,0.45)]
+
+      transition-all duration-300
+    "
+  >
+    ❮
+  </motion.button>
+
+  {/* RIGHT BUTTON */}
+  <motion.button
+
+    whileHover={{
+      scale: 1.12,
+      x: 2,
+    }}
+
+    whileTap={{
+      scale: 0.92,
+    }}
+
+    onClick={() =>
+      setAboutIndex(
+        aboutIndex === aboutImages.length - 1
+          ? 0
+          : aboutIndex + 1
+      )
+    }
+
+    className="
+      absolute right-4 top-1/2 -translate-y-1/2 z-20
+
+      w-11 h-11
+
+      rounded-2xl
+
+      bg-black/40
+      backdrop-blur-xl
+
+      border border-white/10
+
+      text-white text-lg
+
+      flex items-center justify-center
+
+      opacity-0
+      group-hover:opacity-100
+
+      hover:bg-cyan-500
+      hover:text-black
+      hover:border-cyan-400
+
+      hover:shadow-[0_0_25px_rgba(34,211,238,0.45)]
+
+      transition-all duration-300
+    "
+  >
+    ❯
+  </motion.button>
+
+  {/* OVERLAY */}
+  <div className="
+    absolute bottom-0 inset-x-0 h-32
+
+    bg-gradient-to-t
+    from-[#020617]
+    via-[#020617]/60
+    to-transparent
+  "></div>
+
+  {/* FLOATING GLOW */}
+  <div className="
+    absolute inset-0
+
+    bg-gradient-to-tr
+    from-cyan-500/0
+    via-cyan-500/0
+    to-blue-500/0
+
+    group-hover:from-cyan-500/5
+    group-hover:to-blue-500/10
+
+    transition-all duration-700
+  "></div>
+
+  {/* NAME */}
+  <div className="absolute bottom-5 left-5 z-10">
+
+    <motion.span
+
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+
+      className="
+        text-[10px]
+
+        uppercase
+
+        tracking-[0.2em]
+
+        font-mono
+        font-bold
+
+        text-cyan-400
+
+        bg-black/40
+        backdrop-blur-md
+
+        px-4 py-2
+
+        rounded-full
+
+        border border-cyan-500/20
+
+        shadow-[0_0_20px_rgba(34,211,238,0.12)]
+      "
+    >
+      VISHAL L SHETTIGAR
+    </motion.span>
+
+  </div>
+</div>
 
       {/* BUTTON */}
       <motion.button
@@ -976,75 +1209,793 @@ const [aboutIndex, setAboutIndex] = useState(0);
     </motion.div>
 
     
-          <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 60, damping: 15 }}
-            className="lg:col-span-7 space-y-6"
-          >
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 block">Core Summary</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-snug">
-                Turning Computational Logic Problems Into Polished Enterprise Architecture
-              </h2>
-            </div>
+          <motion.div
 
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed font-normal">
-              As a dedicated computer applications professional, I focus on clean object routing, explicit database constraints, and scalable modular logic. I build production-ready setups utilizing deep algorithmic pipelines, helping organizations streamline complex operations easily.
-            </p>
+  initial={{ opacity: 0, x: 40 }}
 
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-slate-900/30 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-xl font-bold text-white flex items-center gap-2"><FaLayerGroup className="text-cyan-400 text-sm" /> Full-Stack</div>
-                <p className="text-[11px] text-slate-500 mt-1">Python, React & Database Schemas</p>
-              </div>
-              <div className="p-4 rounded-xl bg-slate-900/30 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-xl font-bold text-white flex items-center gap-2"><FaServer className="text-blue-400 text-sm" /> Optimization</div>
-                <p className="text-[11px] text-slate-500 mt-1">High-Throughput API Frameworks</p>
-              </div>
-            </div>
-          </motion.div>
+  whileInView={{ opacity: 1, x: 0 }}
+
+  viewport={{ once: true, margin: "-100px" }}
+
+  transition={{
+    type: "spring",
+    stiffness: 60,
+    damping: 15
+  }}
+
+  className="lg:col-span-7 relative"
+>
+
+  {/* BACKGROUND GLOW */}
+  <div className="
+    absolute -top-10 -right-10
+
+    w-72 h-72
+
+    bg-cyan-500/10
+
+    blur-3xl
+
+    rounded-full
+  "></div>
+
+  <div className="relative z-10 space-y-8">
+
+    {/* HEADER */}
+    <div className="space-y-4">
+
+      {/* TOP TAG */}
+      <motion.span
+
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+
+        transition={{ delay: 0.1 }}
+
+        className="
+          inline-flex items-center gap-2
+
+          text-[10px]
+
+          font-mono
+          font-bold
+
+          uppercase
+          tracking-[0.3em]
+
+          text-cyan-400
+
+          bg-cyan-500/5
+
+          border border-cyan-500/20
+
+          px-4 py-2
+
+          rounded-full
+
+          backdrop-blur-md
+        "
+      >
+
+        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+
+        Core Summary
+
+      </motion.span>
+
+      {/* TITLE */}
+      <motion.h2
+
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+
+        transition={{ delay: 0.2 }}
+
+        className="
+          text-4xl md:text-5xl
+
+          font-black
+
+          tracking-tight
+
+          leading-tight
+
+          text-white
+        "
+      >
+
+        Engineering Intelligent
+
+        <span className="
+          block
+
+          bg-gradient-to-r
+          from-cyan-400
+          via-blue-400
+          to-indigo-400
+
+          bg-clip-text
+          text-transparent
+        ">
+
+          Digital Experiences
+
+        </span>
+
+      </motion.h2>
+
+      {/* DESCRIPTION */}
+      <motion.p
+
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+
+        transition={{ delay: 0.3 }}
+
+        className="
+          text-slate-400
+
+          text-sm md:text-base
+
+          leading-relaxed
+
+          max-w-3xl
+        "
+      >
+        I am an MCA graduate and Full Stack Developer passionate about
+        building scalable web applications, AI-powered systems, and
+        modern responsive interfaces. My focus is on creating clean,
+        efficient, and production-ready solutions with strong backend
+        architecture and seamless user experiences.
+      </motion.p>
+
+    </div>
+
+    {/* FEATURE GRID */}
+    <div className="grid md:grid-cols-2 gap-5">
+
+      {/* CARD 1 */}
+      <motion.div
+
+        whileHover={{
+          y: -8,
+          scale: 1.02,
+        }}
+
+        transition={{
+          type: "spring",
+          stiffness: 200,
+        }}
+
+        className="
+          group
+
+          relative overflow-hidden
+
+          p-6
+
+          rounded-3xl
+
+          bg-slate-900/40
+
+          border border-slate-800/80
+
+          backdrop-blur-xl
+
+          transition-all duration-500
+
+          hover:border-cyan-500/30
+
+          hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]
+        "
+      >
+
+        {/* GLOW */}
+        <div className="
+          absolute inset-0
+
+          bg-gradient-to-br
+          from-cyan-500/5
+          to-blue-500/5
+
+          opacity-0
+          group-hover:opacity-100
+
+          transition-all duration-500
+        "></div>
+
+        <div className="relative z-10">
+
+          {/* ICON */}
+          <div className="
+            w-14 h-14
+
+            rounded-2xl
+
+            bg-cyan-500/10
+
+            border border-cyan-500/20
+
+            flex items-center justify-center
+
+            mb-5
+
+            text-cyan-400 text-xl
+
+            group-hover:scale-110
+            group-hover:rotate-6
+
+            transition-all duration-500
+          ">
+            <FaLayerGroup />
+          </div>
+
+          {/* TITLE */}
+          <h3 className="text-2xl font-bold text-white">
+            Full Stack Development
+          </h3>
+
+          {/* TEXT */}
+          <p className="text-sm text-slate-400 leading-relaxed mt-3">
+            Developing scalable applications using Python, Flask,
+            React, SQL databases, and responsive frontend
+            architectures for modern enterprise systems.
+          </p>
+
+        </div>
+      </motion.div>
+
+      {/* CARD 2 */}
+      <motion.div
+
+        whileHover={{
+          y: -8,
+          scale: 1.02,
+        }}
+
+        transition={{
+          type: "spring",
+          stiffness: 200,
+        }}
+
+        className="
+          group
+
+          relative overflow-hidden
+
+          p-6
+
+          rounded-3xl
+
+          bg-slate-900/40
+
+          border border-slate-800/80
+
+          backdrop-blur-xl
+
+          transition-all duration-500
+
+          hover:border-blue-500/30
+
+          hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]
+        "
+      >
+
+        {/* GLOW */}
+        <div className="
+          absolute inset-0
+
+          bg-gradient-to-br
+          from-blue-500/5
+          to-indigo-500/5
+
+          opacity-0
+          group-hover:opacity-100
+
+          transition-all duration-500
+        "></div>
+
+        <div className="relative z-10">
+
+          {/* ICON */}
+          <div className="
+            w-14 h-14
+
+            rounded-2xl
+
+            bg-blue-500/10
+
+            border border-blue-500/20
+
+            flex items-center justify-center
+
+            mb-5
+
+            text-blue-400 text-xl
+
+            group-hover:scale-110
+            group-hover:-rotate-6
+
+            transition-all duration-500
+          ">
+            <FaServer />
+          </div>
+
+          {/* TITLE */}
+          <h3 className="text-2xl font-bold text-white">
+            AI & Backend Systems
+          </h3>
+
+          {/* TEXT */}
+          <p className="text-sm text-slate-400 leading-relaxed mt-3">
+            Creating intelligent systems with optimized APIs,
+            automation workflows, resume analyzers, AI integrations,
+            and structured database management solutions.
+          </p>
+
+        </div>
+      </motion.div>
+
+    </div>
+
+    {/* BOTTOM STATS */}
+    <motion.div
+
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+
+      transition={{ delay: 0.4 }}
+
+      className="
+        flex flex-wrap gap-4 pt-2
+      "
+    >
+
+      {[
+        "Responsive UI",
+        "AI Integration",
+        "Database Design",
+        "REST APIs",
+        "Modern Web Apps"
+      ].map((item, index) => (
+
+        <span
+
+          key={index}
+
+          className="
+            px-4 py-2
+
+            rounded-full
+
+            text-xs
+
+            font-mono
+            font-semibold
+
+            text-slate-300
+
+            border border-slate-800
+
+            bg-slate-900/40
+
+            hover:border-cyan-500/30
+            hover:text-cyan-400
+
+            transition-all duration-300
+
+            cursor-default
+          "
+        >
+          {item}
+        </span>
+
+      ))}
+
+    </motion.div>
+
+  </div>
+</motion.div>
         </div>
       </section>
 
-      {/* Deep Competence Technology Matrix */}
-      <section id="skills" className="py-24 bg-[#040710]/50 border-y border-slate-900 px-6 md:px-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-2 mb-16">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-400 block">Tech Capability</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">Technical Competence Matrix</h2>
+     {/* Deep Competence Technology Matrix */}
+<section
+  id="skills"
+
+  className="
+    relative overflow-hidden
+
+    py-28
+
+    bg-[#040710]/70
+
+    border-y border-slate-900
+
+    px-6 md:px-16
+  "
+>
+
+  {/* BACKGROUND GLOW */}
+  <div className="
+    absolute top-0 left-0
+
+    w-96 h-96
+
+    bg-cyan-500/10
+
+    blur-3xl
+
+    rounded-full
+  "></div>
+
+  <div className="
+    absolute bottom-0 right-0
+
+    w-[30rem] h-[30rem]
+
+    bg-blue-500/10
+
+    blur-3xl
+
+    rounded-full
+  "></div>
+
+  <div className="max-w-6xl mx-auto relative z-10">
+
+    {/* HEADER */}
+    <div className="text-center space-y-5 mb-20">
+
+      {/* TOP TAG */}
+      <motion.span
+
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+
+        transition={{ duration: 0.5 }}
+
+        className="
+          inline-flex items-center gap-2
+
+          text-[10px]
+
+          font-mono
+          font-bold
+
+          uppercase
+          tracking-[0.3em]
+
+          text-cyan-400
+
+          px-5 py-2
+
+          rounded-full
+
+          border border-cyan-500/20
+
+          bg-cyan-500/5
+
+          backdrop-blur-md
+        "
+      >
+
+        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+
+        Tech Capability
+
+      </motion.span>
+
+      {/* TITLE */}
+      <motion.h2
+
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+
+        transition={{ delay: 0.1 }}
+
+        className="
+          text-4xl md:text-5xl
+
+          font-black
+
+          tracking-tight
+
+          text-white
+        "
+      >
+
+        Technical Competence
+
+        <span className="
+          block
+
+          mt-2
+
+          bg-gradient-to-r
+          from-cyan-400
+          via-blue-400
+          to-indigo-400
+
+          bg-clip-text
+          text-transparent
+        ">
+
+          Matrix
+
+        </span>
+
+      </motion.h2>
+
+      {/* SUBTEXT */}
+      <motion.p
+
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+
+        transition={{ delay: 0.2 }}
+
+        className="
+          text-slate-400
+
+          max-w-2xl mx-auto
+
+          text-sm md:text-base
+
+          leading-relaxed
+        "
+      >
+        A strong combination of Full Stack Development,
+        AI technologies, scalable backend systems,
+        database architecture, and modern frontend engineering.
+      </motion.p>
+
+    </div>
+
+    {/* SKILL GRID */}
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      {skillsData.map((item, index) => (
+
+        <motion.div
+
+          key={index}
+
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+
+          viewport={{ once: true }}
+
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 14,
+            delay: index * 0.1,
+          }}
+
+          whileHover={{
+            y: -10,
+            scale: 1.02,
+          }}
+
+          className={`
+            group
+
+            relative overflow-hidden
+
+            rounded-[2rem]
+
+            border border-slate-800/80
+
+            bg-slate-900/40
+
+            backdrop-blur-2xl
+
+            p-7
+
+            transition-all duration-500
+
+            hover:border-cyan-500/30
+
+            hover:shadow-[0_0_50px_rgba(34,211,238,0.14)]
+
+            ${item.glow}
+          `}
+        >
+
+          {/* ANIMATED TOP LINE */}
+          <div className={`
+            absolute top-0 left-0
+
+            w-full h-[3px]
+
+            bg-gradient-to-r ${item.accent}
+
+            scale-x-0 origin-left
+
+            group-hover:scale-x-100
+
+            transition-transform duration-700
+          `}></div>
+
+          {/* HOVER GLOW */}
+          <div className="
+            absolute inset-0
+
+            bg-gradient-to-br
+            from-cyan-500/5
+            via-transparent
+            to-blue-500/5
+
+            opacity-0
+
+            group-hover:opacity-100
+
+            transition-all duration-700
+          "></div>
+
+          {/* FLOATING BLUR */}
+          <div className="
+            absolute -top-10 -right-10
+
+            w-32 h-32
+
+            bg-cyan-500/10
+
+            blur-3xl
+
+            rounded-full
+
+            opacity-0
+
+            group-hover:opacity-100
+
+            transition-all duration-700
+          "></div>
+
+          <div className="relative z-10">
+
+            {/* ICON */}
+            <motion.div
+
+              whileHover={{
+                rotate: 8,
+                scale: 1.12,
+              }}
+
+              className="
+                w-16 h-16
+
+                rounded-2xl
+
+                bg-[#02040a]
+
+                border border-slate-800
+
+                flex items-center justify-center
+
+                text-2xl text-cyan-400
+
+                shadow-inner
+
+                mb-6
+
+                transition-all duration-500
+
+                group-hover:border-cyan-500/30
+                group-hover:shadow-[0_0_25px_rgba(34,211,238,0.25)]
+              "
+            >
+              {item.icon}
+            </motion.div>
+
+            {/* CATEGORY */}
+            <h3 className="
+              text-xl
+
+              font-bold
+
+              text-white
+
+              mb-5
+
+              group-hover:text-cyan-400
+
+              transition-colors duration-300
+            ">
+              {item.category}
+            </h3>
+
+            {/* TECH LIST */}
+            <ul className="space-y-3">
+
+              {item.techs.map((tech, techIndex) => (
+
+                <motion.li
+
+                  key={tech}
+
+                  initial={{
+                    opacity: 0,
+                    x: -10,
+                  }}
+
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+
+                  transition={{
+                    delay: techIndex * 0.05,
+                  }}
+
+                  className="
+                    flex items-center gap-3
+
+                    text-sm
+
+                    text-slate-400
+
+                    font-medium
+
+                    group/item
+                  "
+                >
+
+                  {/* CHECK ICON */}
+                  <div className="
+                    w-5 h-5
+
+                    rounded-full
+
+                    bg-cyan-500/10
+
+                    border border-cyan-500/20
+
+                    flex items-center justify-center
+
+                    shrink-0
+
+                    group-hover/item:scale-110
+
+                    transition-transform duration-300
+                  ">
+
+                    <FaCheckCircle className="text-cyan-400 text-[10px]" />
+
+                  </div>
+
+                  {/* TECH */}
+                  <span className="
+                    group-hover/item:text-slate-200
+
+                    transition-colors duration-300
+                  ">
+                    {tech}
+                  </span>
+
+                </motion.li>
+
+              ))}
+
+            </ul>
+
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {skillsData.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 70, damping: 14, delay: index * 0.1 }}
-                variants={cardHoverEffects}
-                whileHover="hover"
-                className={`bg-slate-900/30 backdrop-blur-md border border-slate-800 p-6 rounded-xl relative overflow-hidden transition-all duration-300 hover:border-slate-700 shadow-xl group ${item.glow}`}
-              >
-                <div className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${item.accent} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}></div>
-                <div className="text-xl text-cyan-400 mb-4 bg-[#02040a] w-12 h-12 rounded-lg flex items-center justify-center border border-slate-800 shadow-inner group-hover:scale-110 transition-transform">{item.icon}</div>
-                <h3 className="text-base font-bold text-white mb-4">{item.category}</h3>
-                
-                <ul className="space-y-2.5">
-                  {item.techs.map((tech) => (
-                    <li key={tech} className="flex items-center gap-2.5 text-slate-400 text-xs font-medium">
-                      <FaCheckCircle className="text-cyan-400/30 text-[10px] shrink-0" />
-                      <span>{tech}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
 
       {/* Full-Stack Interactive Project Explorer Registry */}
 <section
@@ -1600,153 +2551,915 @@ const [aboutIndex, setAboutIndex] = useState(0);
 
 
 
-  {/* Network Mailbox Form (Contact Replaced with Social 3-Column Grid Matrix) */}
-<section id="contact" className="py-24 px-4 sm:px-6 md:px-16 max-w-5xl mx-auto">
-  <div className="text-center space-y-2 mb-12">
-    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 block">Connection Hub</span>
-    <h2 className="text-3xl font-black text-white tracking-tight">Initiate Interview Pipelines</h2>
-    <p className="text-xs text-slate-500 font-mono max-w-md mx-auto">
-      Select a communications endpoint or scan the protocol block to sync up on mobile.
-    </p>
+  {/* Network Mailbox Form */}
+<section
+  id="contact"
+
+  className="
+    relative overflow-hidden
+
+    py-28
+
+    px-4 sm:px-6 md:px-16
+
+    max-w-6xl mx-auto
+  "
+>
+
+  {/* BACKGROUND GLOW */}
+  <div className="
+    absolute top-0 left-0
+
+    w-96 h-96
+
+    bg-cyan-500/10
+
+    rounded-full
+
+    blur-3xl
+  "></div>
+
+  <div className="
+    absolute bottom-0 right-0
+
+    w-[28rem] h-[28rem]
+
+    bg-blue-500/10
+
+    rounded-full
+
+    blur-3xl
+  "></div>
+
+  {/* HEADER */}
+  <div className="relative z-10 text-center space-y-5 mb-16">
+
+    <motion.span
+
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+
+      className="
+        inline-flex items-center gap-2
+
+        text-[10px]
+
+        font-mono font-bold
+
+        uppercase tracking-[0.3em]
+
+        text-cyan-400
+
+        px-5 py-2
+
+        rounded-full
+
+        border border-cyan-500/20
+
+        bg-cyan-500/5
+
+        backdrop-blur-md
+      "
+    >
+
+      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+
+      Connection Hub
+
+    </motion.span>
+
+    <motion.h2
+
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+
+      transition={{ delay: 0.1 }}
+
+      className="
+        text-4xl md:text-5xl
+
+        font-black
+
+        tracking-tight
+
+        text-white
+      "
+    >
+
+      Let’s Build Something
+
+      <span className="
+        block mt-2
+
+        bg-gradient-to-r
+        from-cyan-400
+        via-blue-400
+        to-indigo-400
+
+        bg-clip-text
+        text-transparent
+      ">
+        Amazing Together
+      </span>
+
+    </motion.h2>
+
+    <motion.p
+
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+
+      transition={{ delay: 0.2 }}
+
+      className="
+        text-sm
+
+        text-slate-400
+
+        max-w-xl mx-auto
+
+        leading-relaxed
+      "
+    >
+      Open to internships, full-time opportunities,
+      collaborations, and innovative software projects.
+      Connect through any preferred communication channel.
+    </motion.p>
+
   </div>
 
-  {/* Widened High-Fidelity Glassmorphic Dashboard Panel */}
-  <div className="bg-slate-900/10 border border-slate-900 p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      
-      {/* LEFT SIDE: Social Endpoint Links */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-2">
-        
-        {/* LinkedIn Node */}
-        <motion.a
-          href="https://linkedin.com/in/vishal-l-shettigar"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.99 }}
-          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-cyan-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-        >
-          <div className="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-            <FaLinkedin className="text-lg" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">LinkedIn Protocol</span>
-            <span className="text-xs font-semibold mt-0.5">vishal-l-shettigar</span>
-          </div>
-        </motion.a>
+  {/* MAIN PANEL */}
+  <div className="
+    relative z-10
 
-        {/* GitHub Node */}
-        <motion.a
-          href="https://github.com/VishalLShettigar"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.99 }}
-          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-slate-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-        >
-          <div className="w-10 h-10 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shadow-md">
-            <FaGithub className="text-lg" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">GitHub Repository</span>
-            <span className="text-xs font-semibold mt-0.5">VishalLShettigar</span>
-          </div>
-        </motion.a>
+    rounded-[2rem]
 
-        {/* Email Link Node */}
-        <motion.a
-          href="https://mail.google.com/mail/u/0/#inbox"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.99 }}
-          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-blue-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-        >
-          <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-900/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-            <FaEnvelope className="text-lg" />
-          </div>
-          <div className="flex flex-col max-w-[180px] sm:max-w-none">
-            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Mail Terminal</span>
-            <span className="text-xs font-semibold mt-0.5 truncate">lsvishalshettigar@gmail.com</span>
-          </div>
-        </motion.a>
+    border border-slate-800/80
 
-        {/* Direct Line / Phone Node */}
-        <motion.a
-          href="tel:+919663135942"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.99 }}
-          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-emerald-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer"
-        >
-          <div className="w-10 h-10 rounded-lg bg-emerald-950/40 border border-emerald-900/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all duration-300 shadow-md">
-            <FaPhone className="text-base" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Comms Relay (Phone)</span>
-            <span className="text-xs font-semibold mt-0.5">+91 96631 35942</span>
-          </div>
-        </motion.a>
+    bg-slate-900/30
 
-        {/* Instagram Node (Takes up the bottom full row of the left sub-grid) */}
-        <motion.a
-          href="https://instagram.com/_.vishalshettigar._"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.99 }}
-          className="flex items-center gap-4 p-4 rounded-xl bg-[#02040a]/60 border border-slate-900 hover:border-pink-500/40 text-slate-300 hover:text-white transition-colors duration-300 group cursor-pointer sm:col-span-2"
-        >
-          <div className="w-10 h-10 rounded-lg bg-pink-950/40 border border-pink-900/30 flex items-center justify-center text-pink-400 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
-            <FaInstagram className="text-lg" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">Visual Stream</span>
-            <span className="text-xs font-semibold mt-0.5">@_.vishalshettigar._</span>
-          </div>
-        </motion.a>
-      </div>
+    backdrop-blur-2xl
 
-      {/* RIGHT SIDE: Dedicated 3-Row Height QR Code Panel Component */}
-      <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-[#02040a]/80 border border-slate-900 text-center relative overflow-hidden group min-h-[260px] sm:col-span-2 lg:col-span-1">
-        {/* Tech Ambient Radial Background Glow */}
-        <div className="absolute -inset-10 bg-gradient-to-b from-cyan-500/5 to-transparent rounded-xl blur-xl pointer-events-none group-hover:scale-105 transition-transform duration-500"></div>
-        
-        <div className="relative z-10 flex flex-col items-center justify-center space-y-4 w-full">
-          <div className="flex items-center justify-center gap-2 text-cyan-400">
-            <FaMobileAlt className="text-sm animate-pulse" />
-            <span className="text-[10px] font-mono font-bold tracking-widest uppercase">Mobile Sync Protocol</span>
-          </div>
+    p-6 md:p-8
 
-          {/* Expanded Beautiful High-Contrast QR Code */}
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="bg-white p-3 rounded-xl shadow-[0_0_30px_rgba(34,211,238,0.1)] border border-cyan-500/10 cursor-pointer"
+    shadow-[0_0_50px_rgba(15,23,42,0.5)]
+  ">
+
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      {/* SOCIAL LINKS */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:col-span-2">
+
+        {[
+          {
+            icon: <FaLinkedin />,
+            title: "LinkedIn",
+            value: "vishal-l-shettigar",
+            href: "https://linkedin.com/in/vishal-l-shettigar",
+            glow: "hover:border-cyan-500/40",
+            iconBg: "group-hover:bg-cyan-500",
+            iconText: "text-cyan-400",
+          },
+
+          {
+            icon: <FaGithub />,
+            title: "GitHub",
+            value: "VishalLShettigar",
+            href: "https://github.com/VishalLShettigar",
+            glow: "hover:border-white/20",
+            iconBg: "group-hover:bg-white",
+            iconText: "text-slate-300",
+          },
+
+          {
+            icon: <FaEnvelope />,
+            title: "Email",
+            value: "lsvishalshettigar@gmail.com",
+            href: "mailto:lsvishalshettigar@gmail.com",
+            glow: "hover:border-blue-500/40",
+            iconBg: "group-hover:bg-blue-500",
+            iconText: "text-blue-400",
+          },
+
+          {
+            icon: <FaPhone />,
+            title: "Phone",
+            value: "+91 96631 35942",
+            href: "tel:+919663135942",
+            glow: "hover:border-emerald-500/40",
+            iconBg: "group-hover:bg-emerald-500",
+            iconText: "text-emerald-400",
+          },
+
+        ].map((item, index) => (
+
+          <motion.a
+
+            key={index}
+
+            href={item.href}
+
+            target="_blank"
+
+            rel="noopener noreferrer"
+
+            whileHover={{
+              y: -8,
+              scale: 1.02,
+            }}
+
+            whileTap={{
+              scale: 0.98,
+            }}
+
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+
+            transition={{
+              delay: index * 0.08,
+            }}
+
+            className={`
+              group
+
+              relative overflow-hidden
+
+              flex items-center gap-4
+
+              p-5
+
+              rounded-3xl
+
+              border border-slate-800
+
+              bg-[#02040a]/70
+
+              backdrop-blur-xl
+
+              transition-all duration-500
+
+              ${item.glow}
+
+              hover:shadow-[0_0_30px_rgba(34,211,238,0.12)]
+            `}
           >
-            <img 
-              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=02040a&bgcolor=ffffff&data=https://vishal-l-shettigar.vercel.app/" 
-              alt="Portfolio Link Matrix"
-              className="w-32 h-32 md:w-36 md:h-36 object-contain block"
-            />
-          </motion.div>
 
-          <div className="space-y-1">
-            <h4 className="text-xs font-bold text-slate-200">View on Smartphone</h4>
-            <p className="text-[11px] text-slate-500 max-w-[180px] mx-auto leading-relaxed">
-              Scan this encryption block to load the live environment instantly.
-            </p>
+            {/* GLOW */}
+            <div className="
+              absolute inset-0
+
+              bg-gradient-to-br
+              from-cyan-500/5
+              to-blue-500/5
+
+              opacity-0
+
+              group-hover:opacity-100
+
+              transition-all duration-500
+            "></div>
+
+            {/* ICON */}
+            <div className={`
+              relative z-10
+
+              w-14 h-14
+
+              rounded-2xl
+
+              border border-slate-800
+
+              bg-slate-900/70
+
+              flex items-center justify-center
+
+              text-xl
+
+              ${item.iconText}
+
+              ${item.iconBg}
+
+              group-hover:text-black
+
+              transition-all duration-500
+
+              shadow-lg
+            `}>
+              {item.icon}
+            </div>
+
+            {/* TEXT */}
+            <div className="relative z-10 flex flex-col">
+
+              <span className="
+                text-[10px]
+
+                font-mono font-bold
+
+                uppercase tracking-[0.25em]
+
+                text-slate-500
+              ">
+                {item.title}
+              </span>
+
+              <span className="
+                text-sm
+
+                font-semibold
+
+                text-slate-200
+
+                mt-1
+
+                break-all
+              ">
+                {item.value}
+              </span>
+
+            </div>
+
+          </motion.a>
+
+        ))}
+
+        {/* INSTAGRAM */}
+        <motion.a
+
+          href="https://instagram.com/_.vishalshettigar._"
+
+          target="_blank"
+
+          rel="noopener noreferrer"
+
+          whileHover={{
+            y: -8,
+            scale: 1.02,
+          }}
+
+          whileTap={{
+            scale: 0.98,
+          }}
+
+          className="
+            group
+
+            relative overflow-hidden
+
+            sm:col-span-2
+
+            flex items-center gap-4
+
+            p-5
+
+            rounded-3xl
+
+            border border-slate-800
+
+            bg-[#02040a]/70
+
+            backdrop-blur-xl
+
+            hover:border-pink-500/40
+
+            hover:shadow-[0_0_30px_rgba(236,72,153,0.15)]
+
+            transition-all duration-500
+          "
+        >
+
+          {/* GLOW */}
+          <div className="
+            absolute inset-0
+
+            bg-gradient-to-r
+            from-pink-500/5
+            via-purple-500/5
+            to-orange-500/5
+
+            opacity-0
+
+            group-hover:opacity-100
+
+            transition-all duration-500
+          "></div>
+
+          {/* ICON */}
+          <div className="
+            relative z-10
+
+            w-14 h-14
+
+            rounded-2xl
+
+            border border-slate-800
+
+            bg-slate-900/70
+
+            flex items-center justify-center
+
+            text-pink-400 text-xl
+
+            group-hover:bg-gradient-to-br
+            group-hover:from-yellow-400
+            group-hover:via-pink-500
+            group-hover:to-purple-600
+
+            group-hover:text-white
+
+            transition-all duration-500
+          ">
+            <FaInstagram />
           </div>
-        </div>
+
+          {/* TEXT */}
+          <div className="relative z-10 flex flex-col">
+
+            <span className="
+              text-[10px]
+
+              font-mono font-bold
+
+              uppercase tracking-[0.25em]
+
+              text-slate-500
+            ">
+              Instagram
+            </span>
+
+            <span className="
+              text-sm
+
+              font-semibold
+
+              text-slate-200
+
+              mt-1
+            ">
+              @_.vishalshettigar._
+            </span>
+
+          </div>
+
+        </motion.a>
+
       </div>
+
+      {/* QR PANEL */}
+      <motion.div
+
+        initial={{
+          opacity: 0,
+          scale: 0.9,
+        }}
+
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
+
+        transition={{
+          delay: 0.3,
+        }}
+
+        whileHover={{
+          y: -5,
+        }}
+
+        className="
+          relative overflow-hidden
+
+          rounded-[2rem]
+
+          border border-slate-800
+
+          bg-[#02040a]/80
+
+          backdrop-blur-2xl
+
+          p-8
+
+          flex flex-col items-center justify-center
+
+          text-center
+
+          min-h-[320px]
+
+          hover:border-cyan-500/30
+
+          hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]
+
+          transition-all duration-500
+        "
+      >
+
+        {/* BACKGROUND GLOW */}
+        <div className="
+          absolute inset-0
+
+          bg-gradient-to-b
+          from-cyan-500/5
+          to-transparent
+
+          opacity-0
+
+          hover:opacity-100
+        "></div>
+
+        {/* TOP */}
+        <div className="
+          relative z-10
+
+          flex items-center gap-2
+
+          text-cyan-400
+
+          mb-5
+        ">
+
+          <FaMobileAlt className="animate-pulse" />
+
+          <span className="
+            text-[10px]
+
+            font-mono font-bold
+
+            uppercase tracking-[0.25em]
+          ">
+            Mobile Access
+          </span>
+
+        </div>
+
+        {/* QR */}
+        <motion.div
+
+          whileHover={{
+            scale: 1.05,
+            rotate: 2,
+          }}
+
+          className="
+            relative z-10
+
+            bg-white
+
+            p-4
+
+            rounded-2xl
+
+            shadow-[0_0_40px_rgba(34,211,238,0.18)]
+          "
+        >
+
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=02040a&bgcolor=ffffff&data=https://vishal-l-shettigar.vercel.app/"
+            alt="Portfolio QR"
+
+            className="
+              w-40 h-40
+
+              object-contain
+            "
+          />
+
+        </motion.div>
+
+        {/* TEXT */}
+        <div className="relative z-10 mt-6 space-y-2">
+
+          <h4 className="
+            text-sm
+
+            font-bold
+
+            text-white
+          ">
+            Open Portfolio on Mobile
+          </h4>
+
+          <p className="
+            text-xs
+
+            text-slate-500
+
+            leading-relaxed
+          ">
+            Scan the QR code to instantly
+            access the live portfolio experience.
+          </p>
+
+        </div>
+
+      </motion.div>
 
     </div>
+
   </div>
 </section>
 
-      {/* Footer Ecosystem */}
-      <footer className="text-center py-8 border-t border-slate-900 bg-[#02040a] text-[10px] tracking-widest text-slate-600 font-mono">
-        <p>© 2026 VISHAL L SHETTIGAR . ENGINEERING SYSTEM SPECIFICATIONS VERIFIED PRODUCTION OPTIMIZED.</p>
-      </footer>
+    {/* Premium Footer */}
+<footer
+  className="
+    relative overflow-hidden
+
+    border-t border-slate-800/70
+
+    bg-[#02040a]
+
+    py-12 px-6
+  "
+>
+
+  {/* TOP GLOW LINE */}
+  <div className="
+    absolute top-0 left-0
+
+    h-[1px] w-full
+
+    bg-gradient-to-r
+    from-transparent
+    via-cyan-400/40
+    to-transparent
+  "></div>
+
+  {/* AMBIENT GLOW */}
+  <div className="
+    absolute left-1/2 top-0
+
+    -translate-x-1/2
+
+    w-[35rem] h-[14rem]
+
+    bg-cyan-500/10
+
+    blur-3xl
+
+    rounded-full
+  "></div>
+
+  {/* GRID OVERLAY */}
+  <div className="
+    absolute inset-0
+
+    opacity-[0.03]
+
+    bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]
+
+    bg-[size:40px_40px]
+  "></div>
+
+  <div className="
+    relative z-10
+
+    max-w-6xl mx-auto
+
+    flex flex-col items-center justify-center
+
+    text-center
+  ">
+
+    {/* BRAND TITLE */}
+    <motion.div
+
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        duration: 0.6,
+      }}
+
+      className="space-y-4"
+    >
+
+      <h2 className="
+        text-2xl md:text-4xl
+
+        font-black
+
+        tracking-tight
+
+        bg-gradient-to-r
+        from-cyan-400
+        via-blue-400
+        to-indigo-400
+
+        bg-clip-text
+        text-transparent
+      ">
+        Vishal L Shettigar
+      </h2>
+
+      {/* SUBTITLE */}
+      <p className="
+        text-[10px]
+
+        uppercase
+
+        tracking-[0.35em]
+
+        font-mono
+
+        text-slate-500
+      ">
+        Full Stack Developer • AI Systems Engineer • MCA Graduate
+      </p>
+
+    </motion.div>
+
+    {/* DIVIDER */}
+    <motion.div
+
+      initial={{
+        width: 0,
+        opacity: 0,
+      }}
+
+      whileInView={{
+        width: "220px",
+        opacity: 1,
+      }}
+
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+      }}
+
+      className="
+        h-[1px]
+
+        my-8
+
+        bg-gradient-to-r
+        from-transparent
+        via-cyan-500/40
+        to-transparent
+      "
+    ></motion.div>
+
+    {/* DESCRIPTION */}
+    <motion.p
+
+      initial={{
+        opacity: 0,
+        y: 15,
+      }}
+
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        delay: 0.3,
+      }}
+
+      className="
+        text-sm
+
+        text-slate-500
+
+        leading-relaxed
+
+        max-w-2xl
+      "
+    >
+      Passionate about building scalable web applications,
+      AI-powered systems, and visually polished digital
+      experiences with modern technologies and clean architecture.
+    </motion.p>
+
+    {/* TECH STACK BADGES */}
+    <motion.div
+
+      initial={{
+        opacity: 0,
+        y: 15,
+      }}
+
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+
+      transition={{
+        delay: 0.4,
+      }}
+
+      className="
+        flex flex-wrap items-center justify-center gap-3
+
+        mt-8
+      "
+    >
+
+      {[
+        "React",
+        "Flask",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Python",
+        "AI Systems"
+      ].map((item, index) => (
+
+        <span
+
+          key={index}
+
+          className="
+            px-4 py-2
+
+            rounded-full
+
+            text-[10px]
+
+            uppercase
+
+            tracking-wider
+
+            font-mono font-bold
+
+            text-slate-400
+
+            border border-slate-800
+
+            bg-slate-900/40
+
+            hover:border-cyan-500/30
+            hover:text-cyan-400
+
+            transition-all duration-300
+          "
+        >
+          {item}
+        </span>
+
+      ))}
+
+    </motion.div>
+
+    {/* BOTTOM COPYRIGHT */}
+    <motion.div
+
+      initial={{
+        opacity: 0,
+      }}
+
+      whileInView={{
+        opacity: 1,
+      }}
+
+      transition={{
+        delay: 0.5,
+      }}
+
+      className="
+        mt-10
+
+        space-y-2
+      "
+    >
+
+      <p className="
+        text-[10px]
+
+        tracking-[0.3em]
+
+        uppercase
+
+        font-mono
+
+        text-slate-600
+      ">
+        © 2026 Vishal L Shettigar
+      </p>
+
+      <p className="
+        text-[11px]
+
+        text-slate-700
+      ">
+        Designed & Engineered with Precision • Production Optimized
+      </p>
+
+    </motion.div>
+
+  </div>
+</footer>
     </div>
   );
 }
