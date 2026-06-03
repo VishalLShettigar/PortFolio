@@ -182,14 +182,15 @@ const [aboutIndex, setAboutIndex] = useState(0);
   ],
 
   images: [
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80"
+    "/Photos/PocketPay/PocketPay1.png",
+    "/Photos/PocketPay/PocketPay2.png",
+    "/Photos/PocketPay/PocketPay3.png",
+    "/Photos/PocketPay/PocketPay4.png"
   ],
 
   metrics: [
     "Automated earnings calculation","Real-time job history tracking","Centralized financial record management"]
-}
+},
     {
       title: "Matadaan",
       subtitle: "Secure Real-Time Election Engine",
