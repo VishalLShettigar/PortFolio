@@ -255,29 +255,28 @@ className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidd
   initial="hidden"
   animate="show"
   className="
-    flex
-    justify-center
-    whitespace-nowrap
+  flex
+  justify-center
+  whitespace-nowrap
 
-    text-[24px]
-    xs:text-[28px]
-    sm:text-5xl
-    md:text-7xl
-    lg:text-8xl
+  text-[28px]
+  sm:text-6xl
+  md:text-8xl
 
-    font-black
-    tracking-[-0.03em]
+  font-black
 
-    mb-6
+  tracking-tight
 
-    bg-gradient-to-r
-    from-cyan-400
-    via-blue-400
-    to-indigo-400
+  mb-6
 
-    bg-clip-text
-    text-transparent
-  "
+  bg-gradient-to-r
+  from-cyan-400
+  via-blue-400
+  to-indigo-400
+
+  bg-clip-text
+  text-transparent
+"
 >
   {titleText.split("").map((char, index) => (
     <motion.span
