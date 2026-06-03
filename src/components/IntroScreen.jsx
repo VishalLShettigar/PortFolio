@@ -251,42 +251,43 @@ className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidd
 
     {/* NAME */}
     <motion.div
-      variants={titleVariants}
-      initial="hidden"
-      animate="show"
-      className="
-        flex
-        flex-wrap
-        justify-center
+  variants={titleVariants}
+  initial="hidden"
+  animate="show"
+  className="
+    flex
+    justify-center
+    whitespace-nowrap
 
-        text-5xl
-        sm:text-6xl
-        md:text-8xl
+    text-[24px]
+    xs:text-[28px]
+    sm:text-5xl
+    md:text-7xl
+    lg:text-8xl
 
-        font-black
+    font-black
+    tracking-[-0.03em]
 
-        tracking-tight
+    mb-6
 
-        mb-6
+    bg-gradient-to-r
+    from-cyan-400
+    via-blue-400
+    to-indigo-400
 
-        bg-gradient-to-r
-        from-cyan-400
-        via-blue-400
-        to-indigo-400
-
-        bg-clip-text
-        text-transparent
-      "
+    bg-clip-text
+    text-transparent
+  "
+>
+  {titleText.split("").map((char, index) => (
+    <motion.span
+      key={index}
+      variants={letterVariants}
     >
-      {titleText.split("").map((char, index) => (
-        <motion.span
-          key={index}
-          variants={letterVariants}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </motion.div>
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  ))}
+</motion.div>
 
     {/* ROLE */}
     <motion.p
