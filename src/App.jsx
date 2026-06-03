@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import IntroScreen from "./components/IntroScreen";
+import ThankYouScreen from "./components/ThankYouScreen";
+import { X } from "lucide-react";
 import {
   FaGithub,
   FaLinkedin,
@@ -60,6 +62,7 @@ export default function App() {
 const [showAllAchievements, setShowAllAchievements] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showProfileCard, setShowProfileCard] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const aboutImages = [
   "/Photos/Profile/photo2.jpeg",
@@ -3175,6 +3178,49 @@ const [aboutIndex, setAboutIndex] = useState(0);
 
   </div>
 </section>
+<motion.button
+  initial={{ opacity: 0, scale: 0 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 2 }}
+  whileHover={{
+    scale: 1.1,
+    rotate: 90
+  }}
+  whileTap={{
+    scale: 0.9
+  }}
+  onClick={() => setShowThankYou(true)}
+  className="
+    fixed
+    bottom-6
+    right-6
+    z-50
+
+    w-14
+    h-14
+
+    rounded-full
+
+    bg-gradient-to-r
+    from-rose-500
+    to-orange-500
+
+    text-white
+
+    flex
+    items-center
+    justify-center
+
+    shadow-[0_0_30px_rgba(244,63,94,0.35)]
+
+    hover:shadow-[0_0_50px_rgba(244,63,94,0.6)]
+
+    transition-all
+    duration-300
+  "
+>
+  <X size={22} />
+</motion.button>
 
     {/* Premium Footer */}
 <footer
@@ -3471,6 +3517,11 @@ const [aboutIndex, setAboutIndex] = useState(0);
 
   </div>
 </footer>
+{showThankYou && (
+  <ThankYouScreen
+    onCancel={() => setShowThankYou(false)}
+  />
+)}
     </div>
   );
 }
