@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import IntroScreen from "./components/IntroScreen";
 import {
   FaGithub,
   FaLinkedin,
@@ -317,6 +318,16 @@ const [aboutIndex, setAboutIndex] = useState(0);
     setCurrentImgIndex(0); // Clear layout index to fix thumbnail tracks
     document.body.style.overflow = "unset";
   };
+
+  const [showIntro, setShowIntro] = useState(true);
+
+  if (showIntro) {
+    return (
+      <IntroScreen
+        onComplete={() => setShowIntro(false)}
+      />
+    );
+  }
 
   return (
     <div className="bg-[#02040a] text-slate-100 selection:bg-cyan-400 selection:text-black antialiased relative min-h-screen font-sans tracking-normal overflow-x-hidden">
