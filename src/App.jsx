@@ -169,19 +169,27 @@ const [aboutIndex, setAboutIndex] = useState(0);
       metrics: ["38-class plant disease recognition model","High-speed leaf image prediction system","AI-powered crop disease identification","Automated agricultural health monitoring","Interactive disease detection visualization"]
     },
     {
-      title: "Online Voting Portal",
-      subtitle: "Secure Real-Time Election Engine",
-      category: "Full-Stack Web Application",
-      shortDesc: "High-fidelity real-world web application built to enforce absolute state integrity and bulletproof voter metric tracking.",
-      longDesc: "A complete software engineering package built from scratch to modernize democratic workflows. It utilizes structured database constraints to guarantee single-vote validation protocols, instant localized tallies, and high-performance interactive component screens that adapt seamlessly across devices.",
-      stack: ["React.js", "Tailwind CSS", "Node.js", "MySQL", "State Management Layer"],
-      images: [
-        "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-      ],
-      metrics: ["100% accurate database transaction parsing", "Zero state manipulation risk arrays", "Sub-millisecond interface updates"]
-    },
+  title: "Pocket Pay",
+  subtitle: "Shift-by-Shift Earnings & Detailed History",
+  category: "Full-Stack Financial Management Application",
+
+  shortDesc: "A centralized platform for tracking catering jobs, earnings, tips, and income history with real-time financial insights.",
+
+  longDesc: "Pocket Pay is a full-stack income management system designed to help catering professionals efficiently track their work assignments and earnings. The platform enables users to record job details, including catering company, work schedule, salary, and tips, while automatically calculating total earnings. Built with a Flask-powered backend and SQLite database, the application provides secure data storage, real-time income tracking, and a structured earnings history dashboard for financial monitoring and reporting.",
+
+  stack: [
+    "Flask","Python","SQLite","HTML","CSS","JavaScript"
+  ],
+
+  images: [
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80"
+  ],
+
+  metrics: [
+    "Automated earnings calculation","Real-time job history tracking","Centralized financial record management"]
+}
     {
       title: "Matadaan",
       subtitle: "Secure Real-Time Election Engine",
